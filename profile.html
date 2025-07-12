@@ -7,8 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=League+Spartan" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Caveat:wght@400..700&family=League+Spartan:wght@100..900&family=Oi&family=Reenie+Beanie&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -20,15 +22,16 @@
 <body>
 
   <!-- ======= HEADER ======= -->
-  <header>
+
     <div class="navbar">
       <div class="navbar-left">
         <p>Follow us on : </p>
         <ul class="navbar-left-list1">
-          <li><a href="#"><img src="images/fb_icon.png" alt="FB" height="20"></a></li>
-          <li><a href="#"><img src="images/instagram_icon.png" alt="Insta" height="20"></a></li>
-          <li><a href="#"><img src="images/x_icon.png" alt="X" height="20"></a></li>
-          <li><a href="#"><img src="images/playstore_icon.png" alt="Play" height="20"></a></li>
+          <li><a href="https://www.facebook.com/officialdmrc/" target="_blank"><img src="images/fb_icon.png" alt="FB" height="20"></a></li>
+          <li><a href="https://www.instagram.com/officialdmrc/?hl=en" target="_blank"><img src="images/instagram_icon.png" alt="Insta" height="20"></a></li>
+          <li><a href="https://x.com/OfficialDMRC" target="_blank"><img src="images/x_icon.png" alt="X" height="20"></a></li>
+          <li><a href="https://apps.apple.com/in/app/delhi-metro-rail/id691105308" target="_blank"><img src="images/apple_logo.png" alt="Play" height="20"></a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.sraoss.dmrc" target="_blank"><img src="images/playstore_icon.png" alt="Play" height="20"></a></li>
         </ul>
       </div>
     </div>
@@ -53,32 +56,44 @@
 
         <nav class="secondary-navbar">
           <ul>
-            <li><a href="dashboard.html">Home</a></li>
-            <li><a href="#footer">Contact</a></li>
-            <li><a href="#">Profile</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="filler.html">Contact</a></li>
+              <li><a href="https://delhimetrorail.com/facilities">Facilities</a></li>
+              <li><a href="https://delhimetrorail.com/map">Maps</a></li>
+              <li><a href="https://delhimetrorail.com/faq">FAQs</a></li>
           </ul>
         </nav>
       </div>
     </div>
-  </header>
+
 
   <main>
     <main class="container">
     <div class="left-column">
-      <div class="main-title-left">
-        <p style="font-family: 'League Spartan', sans-serif; color: #b51d1d;">User <br>Profile</p>
-      </div>
-      <aside class="sidebar">
+      <aside class="lostfound-sidebar">
         <h2>Actions</h2>
-        <ul class="sidebar-links">
-          <li><span><i class="fa-solid fa-star"></i></span><a href="lost.html"> Report Lost Item</a></li>
-          <li><span><i class="fa-solid fa-star"></i></span><a href="found.html"> Report Found Item</a></li>
-          <li><span><i class="fa-solid fa-star"></i></span><a href="#">View Reports/ Search Item</a></li>
+        <ul class="lostfound-sidebar-links">
+          <li><span><i class="fa-regular fa-star"></i></span><a href="lost.html"> Report Lost Item</a></li>
+          <li><span><i class="fa-regular fa-star"></i></span><a href="found.html"> Report Found Item</a></li>
+          <li><span><i class="fa-regular fa-star"></i></span><a href="filler.html">View Reports/ Search Item</a></li>
         </ul>
       </aside>
     </div>
+        <div class="lostfound-main-area">
+          <div class="lostfound-main-title-left">
+        <p>User Profile</p>
+      </div>
+      <div class="lostfound-floating-toggle" onclick="toggleOptions()">
+      <img src = "images/burger-bar.png"></div>
+      <div class="lostfound-mobile-options-panel" id="lostfound-optionsPanel">
+  <!-- Put your options like profile, actions, etc. -->
+       <a href="lost.html">Report</a><br>
+       <a href="filler.html">View Reports</a><br>
+       <a href="profile.html">Profile</a><br>
+    </div>
+
       <div class="user-details">
-        <form>
+        <form id="user-profile-form">
           <label>Name</label>
           <input type="text" placeholder="Text" readonly />
 
@@ -99,5 +114,6 @@
       <p>© 2023 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
     </div>
   </footer>
+  <script src="logic.js"></script>
 </body>
 </html>

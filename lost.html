@@ -2,39 +2,37 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <title>Delhi Metro Lost and Found</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lost Page</title>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=League+Spartan" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Caveat:wght@400..700&family=League+Spartan:wght@100..900&family=Oi&family=Reenie+Beanie&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
+  <script src="logic.js"></script>
 </head>
 
 <body>
+
   <!-- ======= HEADER ======= -->
-  <header>
+
     <div class="navbar">
       <div class="navbar-left">
         <p>Follow us on : </p>
         <ul class="navbar-left-list1">
-          <li><a href="https://www.facebook.com/officialdmrc/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
-          <li><a href="https://www.instagram.com/officialdmrc/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a></li>
-          <li><a href="https://x.com/OfficialDMRC" target="_blank">
-            <!-- Twitter X Icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" height="13px" fill="currentColor" class="bi bi-twitter-x" viewBox="0 0 16 16" style="color:#000;">
-              <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" />
-            </svg>
-          </a></li>
-          <li>|</li>
-          <li><a href="https://apps.apple.com/in/app/delhi-metro-rail/id691105308" target="_blank"><i class="fa-brands fa-apple"></i></a></li>
-          <li><a href="https://play.google.com/store/apps/details?id=com.sraoss.dmrc" target="_blank"><i class="fa-brands fa-google-play"></i></a></li>
+          <li><a href="https://www.facebook.com/officialdmrc/" target="_blank"><img src="images/fb_icon.png" alt="FB" height="20"></a></li>
+          <li><a href="https://www.instagram.com/officialdmrc/?hl=en" target="_blank"><img src="images/instagram_icon.png" alt="Insta" height="20"></a></li>
+          <li><a href="https://x.com/OfficialDMRC" target="_blank"><img src="images/x_icon.png" alt="X" height="20"></a></li>
+          <li><a href="https://apps.apple.com/in/app/delhi-metro-rail/id691105308" target="_blank"><img src="images/apple_logo.png" alt="Play" height="20"></a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.sraoss.dmrc" target="_blank"><img src="images/playstore_icon.png" alt="Play" height="20"></a></li>
         </ul>
       </div>
     </div>
@@ -42,60 +40,72 @@
     <!-- ======= MAIN HEADER ======= -->
     <div class="header-main">
       <div class="header-left">
-        <img src="./images/dmrc-Logo.png" alt="DMRC Logo" />
-        <div class="dmrc-title">
-          <div class="delhi">DELHI</div>
-          <div class="metro"><span class="italic-m">M</span>ETRO</div>
-        </div>
+        <img src="images/dmrc_logo.png" alt="DMRC Logo" />
       </div>
+
       <div class="header-right">
-        <input type="text" placeholder="Search..." />
+        <div class="helpline">
+          <img src="images/helpline.svg" alt="Helpline" height="15">
+          Helpline <br>
+          <span style="color: green; font-weight: bold;">155370</span>
+        </div>
+
+        <div class="search-bar">
+          <input type="text" placeholder="Search...">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
         <nav class="secondary-navbar">
           <ul>
-            <li><a href="dashboard.html">Home</a></li>
-            <li><a href="#footer">Contact</a></li>
-            <li><a href="#">Profile</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="filler.html">Contact</a></li>
+              <li><a href="https://delhimetrorail.com/facilities">Facilities</a></li>
+              <li><a href="https://delhimetrorail.com/map">Maps</a></li>
+              <li><a href="https://delhimetrorail.com/faq">FAQs</a></li>
           </ul>
         </nav>
       </div>
     </div>
-  </header>
 
-  <!-- ======= MAIN CONTENT ======= -->
-  <main class="container">
-    <div class="left-column">
-      <div class="main-title-left">
-        <!-- Main Title -->
-        <p style="font-family: 'League Spartan', sans-serif; color: #b51d1d;">Lost</p>
-      </div>
-
-      <!-- Sidebar Actions -->
-      <aside class="sidebar">
+    <!-- ======= MAIN CONTENT ======= -->
+  <main class="lostfound-container">
+    <div class="lostfound-left-column">
+      <aside class="lostfound-sidebar">
         <h2>Actions</h2>
-        <ul class="sidebar-links">
-          <li><i class="fa-regular fa-star"></i> <a href="#">Report Lost item</a></li>
-          <li><i class="fa-regular fa-star"></i> <a href="#">View Reports/ Search Item</a></li>
-          <li><i class="fa-regular fa-star"></i> <a href="#">Profile</a></li>
+        <ul class="lostfound-sidebar-links">
+          <li><i class="fa-regular fa-star"></i> <a href="lost.html">Report Found item</a></li>
+          <li><i class="fa-regular fa-star"></i> <a href="filler.html">View Reports/ Search Item</a></li>
+          <hr style = " width : 90%; opacity : 70%;">
+          <li><i class="fa-regular fa-star"></i> <a href="profile.html">Profile</a></li>
         </ul>
       </aside>
     </div>
-
-    <!-- Form Container -->
-    <div class="container-form">
-      <section class="form-section">
-        <form id="lostForm">
-          <!-- Item Name -->
+    <!-- ======= LEFT AREA ======= -->
+    <div class="lostfound-main-area">
+    <div class="lostfound-main-title-left">
+        <p style="font-family: 'League Spartan', sans-serif; color: #b51d1d; text-align: center;">Lost</p>
+      </div>
+    <div class="lostfound-floating-toggle" onclick="toggleOptions()">
+      <img src = "images/burger-bar.png"></div>
+      <div class="lostfound-mobile-options-panel" id="lostfound-optionsPanel">
+  <!-- Put your options like profile, actions, etc. -->
+       <a href="found.html">Report</a><br>
+       <a href="filler.html">View Reports</a><br>
+       <a href="profile.html">Profile</a><br>
+    </div>
+    <!--           FORM SECTION             -->
+    <div class="lostfound-container-form">
+      <section class="lostfound-form-section">
+        <form id="foundForm" novalidate>
           <label>Item Name <span style="color: red;">*</span></label>
-          <input type="text" name="itemName" required placeholder="Text" />
-
-          <!-- Date and Time -->
+          <input type="text" name="itemName" placeholder="Item Name" />
+          <span class="error" id="itemNameError"></span>
           <label>Date & Time of Lost Item<span style="color: red;">*</span></label>
-          <input type="datetime-local" name="lostDate" placeholder="Text" />
+          <input type="datetime-local" name="lostDate" required placeholder="Text" />
 
-          <!-- Line Selection -->
           <label for="line">Choose a line <span style="color: red;">*</span></label>
-          <select id="line" name="line" onchange="updateStations()">
-            <option value="">Select a Line</option>
+          <select id="line" name="line"  onchange="updateStations()">
+            <option value="" disabled selected>Select a Line</option>
             <option value="blue">Blue Line</option>
             <option value="red">Red Line</option>
             <option value="yellow">Yellow Line</option>
@@ -106,50 +116,44 @@
             <option value="grey">Grey Line</option>
             <option value="airport">Airport Express Line</option>
             <option value="rapid">Rapid Metro Gurgaon</option>
-          </select>
+            </select>
+            <span class = "error" id = "lineError"></span>     <!-- ERROR HANDLING -->
 
-          <!-- Station Selection -->
           <label for="station">Choose a Station:<span style="color: red;">*</span></label>
-          <select id="station" name="station">
-            <option value="">Select a Station</option>
+          <select id="station" name="station" >
+            <option value="" disabled selected>Select a Station</option>
           </select>
+          <span class="error" id="stationError"></span>
 
-          <!-- Remarks -->
           <label>Remarks (optional)</label>
           <textarea name="remarks" placeholder="Any extra details about the location or the item."></textarea>
 
-          <!-- File Upload -->
-          <div class="file-upload-section">
-            <label>File Upload (any previous pictures)</label>
-            <div class="file-upload-area">
+          <div class="lostfound-file-upload-section">
+            <label>File Upload</label>
+            <div class="lostfound-file-upload-area">
               <i class="fa-regular fa-cloud-arrow-up"></i>
               <span>Click or drag file to this area to upload</span>
             </div>
-            <div class="file-upload-info">Formats accepted are .jpg .jpeg .png</div>
+            <div class="lostfound-file-upload-info">Formats accepted are .jpg .jpeg .png</div>
             <input type="file" accept=".jpg,.jpeg,.png" style="display:none;" />
           </div>
 
-          <!-- Buttons -->
-          <div class="button-group">
-            <button type="reset">Cancel</button>
+          <div class="lostfound-button-group">
+            <button onclick="resetForm()" type="reset">Cancel</button>
             <button type="submit">Continue</button>
           </div>
         </form>
       </section>
     </div>
+    </div>
   </main>
-
   <!-- ======= FOOTER ======= -->
-  <footer>
-    <div class="footer-content">
-      <div class="footer-left">
+   <footer>
+      <div class="footer-content">
         <p>© 2023 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
       </div>
-    </div>
-  </footer>
-
-  <!-- JavaScript -->
+</footer>
   <script src="logic.js"></script>
 </body>
-
 </html>
+
