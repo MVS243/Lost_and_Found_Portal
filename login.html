@@ -1,49 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Delhi Metro Login</title>
+  <title>Delhi Metro Lost and Found_Login</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=League+Spartan" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Custom Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-    <div class="top-bar">
-    <div>
-      Follow us on
-      <a href="#"><img src="images\fb_icon.png" alt="FB" height="20"></a>
-      <a href="#"><img src="images\instagram_icon.png" alt="Insta" height="20"></a>
-      <a href="#"><img src="images\x_icon.png" alt="X" height="20"></a>
-      <a href="#"><img src="images\playstore_icon.png" alt="Play" height="20"></a>
-    </div>
-    <div>
-      <a href="#">For Passengers</a> | <a href="#">For Corporates</a>
-    </div>
-  </div>
 
-  <div class="header">
-    <div class="logo">
-      <img src="images\dmrc_logo.png" alt="DMRC">
-    </div>
-
-    <div class="right-menu">
-      <div>
-        <img src="images\helpline.svg" alt="Helpline" height="15"> Helpline <br>
-        <span style="color: green; font-weight: bold;">155370</span>
-      </div>
-
-      <div class="search-bar">
-        <input type="text" placeholder="Search"><i class="fa-solid fa-magnifying-glass"></i>
-      </div>
-
-      <div class="nav-links">
-        <a href="#">Home</a>
-        <a href="#">Contact</a>
-        <a href="#">Services</a>
-        <a href="#">Maps</a>
-        <a href="#">FAQs</a>
+  <!-- ======= HEADER ======= -->
+  <header>
+    <div class="navbar">
+      <div class="navbar-left">
+        <p>Follow us on : </p>
+        <ul class="navbar-left-list1">
+          <li><a href="#"><img src="images/fb_icon.png" alt="FB" height="20"></a></li>
+          <li><a href="#"><img src="images/instagram_icon.png" alt="Insta" height="20"></a></li>
+          <li><a href="#"><img src="images/x_icon.png" alt="X" height="20"></a></li>
+          <li><a href="#"><img src="images/playstore_icon.png" alt="Play" height="20"></a></li>
+        </ul>
       </div>
     </div>
-  </div>
+
+    <!-- ======= MAIN HEADER ======= -->
+    <div class="header-main">
+      <div class="header-left">
+        <img src="images/dmrc_logo.png" alt="DMRC Logo" />
+      </div>
+
+      <div class="header-right">
+        <div class="helpline">
+          <img src="images/helpline.svg" alt="Helpline" height="15">
+          Helpline <br>
+          <span style="color: green; font-weight: bold;">155370</span>
+        </div>
+
+        <div class="search-bar">
+          <input type="text" placeholder="Search...">
+          <i class="fa-solid fa-magnifying-glass"></i>
+        </div>
+
+        <nav class="secondary-navbar">
+          <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#footer">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
 
   <div class="login-container">
     <form class="login-box">
@@ -53,14 +69,19 @@
       <label>Password <div class="required">*</div></label>
       <input type="password" placeholder="Value" required />
 
-      <button class="login-btn" type="submit"><a href="dashboard.html">Sign In</a></button> 
+      <button class="login-btn" type="submit"><a href="dashboard.html" style="text-decoration: none; color:#ffffff;">Sign In</a></button> 
 
       <div class="form-links">
-        <a href="#"> Forgot password? </a>
-        <a href="register.html" class="right"> New user?  Register</a>
+        <a href="#"> Forgot password?</a><br>
+        <a class="right-link" href="register.html"> New user?  Register</a>
       </div>
     </form>
   </div>
+  <footer>
+    <div class="footer-content">
+      <p>© 2023 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
+    </div>
+  </footer>
   <script src="logic.js"></script>
 </body>
 </html>

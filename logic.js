@@ -1,5 +1,7 @@
 //home page
-const images = ["img1.png", "img2.png", "img3.png"]; // Replace with your image paths
+const images = ["images/home_image.jpg",
+  "images/home_image.jpg",
+  "images/home_image.jpg"]; //image paths
     let index = 0;
     const imgElement = document.getElementById("slideshow");
 
@@ -15,7 +17,7 @@ const images = ["img1.png", "img2.png", "img3.png"]; // Replace with your image 
 //dashboard
 function reportLost() {
     alert("Redirecting to Report Lost Item form...");
-    //window.location.href = "report-lost.html";
+    window.location.href = "lost.html";
 }
 
 function viewLost() {
@@ -25,6 +27,7 @@ function viewLost() {
 
 function reportFound() {
     alert("Redirecting to Report Found Item form...");
+    window.location.href = "found.html";
 }
 
 function viewFound() {
