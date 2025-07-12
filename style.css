@@ -945,7 +945,7 @@ header {
   box-shadow: 0 10px 10px rgba(255, 255, 255, 0);
 }
 .card {
-    background-color: #dfdbff;
+    background-color: white;
     border: 2px solid #be0000;
     padding: 40px;
     border-radius: 8px;
@@ -971,7 +971,7 @@ header {
     margin: 10px 0;
     background: #a40000;
     color: #ffffff;
-    border: none;
+    border: 1px solid white;
     border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
