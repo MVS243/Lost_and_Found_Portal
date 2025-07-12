@@ -2,7 +2,7 @@
 
 ## Frontend
 
-### Tech Stack:
+### <ins> Tech Stack </ins>:
 
 **HTML**
 
