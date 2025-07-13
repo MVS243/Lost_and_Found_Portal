@@ -1,8 +1,8 @@
 # Lost_and_Found_Portal
 
-## Frontend
+## Tech Stack :
 
-### <ins> Tech Stack </ins>:
+### <ins> Frontend </ins>
 
 **HTML**
 
