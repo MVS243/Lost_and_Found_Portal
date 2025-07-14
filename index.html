@@ -7,10 +7,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Caveat:wght@400..700&family=League+Spartan:wght@100..900&family=Oi&family=Reenie+Beanie&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=League+Spartan" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -27,11 +25,10 @@
       <div class="navbar-left">
         <p>Follow us on : </p>
         <ul class="navbar-left-list1">
-          <li><a href="https://www.facebook.com/officialdmrc/" target="_blank"><img src="images/fb_icon.png" alt="FB" height="20"></a></li>
-          <li><a href="https://www.instagram.com/officialdmrc/?hl=en" target="_blank"><img src="images/instagram_icon.png" alt="Insta" height="20"></a></li>
+          <li><a href="https://www.facebook.com/officialdmrc/"><img src="images/fb_icon.png" target="_blank" alt="FB" height="20"></a></li>
+          <li><a href="https://www.instagram.com/officialdmrc/?hl=en"><img src="images/instagram_icon.png" target="_blank" alt="Insta" height="20"></a></li>
           <li><a href="https://x.com/OfficialDMRC" target="_blank"><img src="images/x_icon.png" alt="X" height="20"></a></li>
-          <li><a href="https://apps.apple.com/in/app/delhi-metro-rail/id691105308" target="_blank"><img src="images/apple_logo.png" alt="Play" height="20"></a></li>
-          <li><a href="https://play.google.com/store/apps/details?id=com.sraoss.dmrc" target="_blank"><img src="images/playstore_icon.png" alt="Play" height="20"></a></li>
+          <li><a href="https://apps.apple.com/in/app/delhi-metro-rail/id691105308" target="_blank"><img src="images/playstore_icon.png" alt="Play" height="20"></a></li>
         </ul>
       </div>
     </div>
@@ -56,11 +53,8 @@
 
         <nav class="secondary-navbar">
           <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="filler.html">Contact</a></li>
-              <li><a href="https://delhimetrorail.com/facilities">Facilities</a></li>
-              <li><a href="https://delhimetrorail.com/map">Maps</a></li>
-              <li><a href="https://delhimetrorail.com/faq">FAQs</a></li>
+            <li><a href="#">Home</a></li>
+            <li><a href="#footer">Contact</a></li>
           </ul>
         </nav>
       </div>
@@ -68,25 +62,24 @@
   </header>
 
   <!-- ======= MAIN CONTENT ======= -->
-  <main class="main-container">
-  <div class="left-section">
-    <div class="question-box">
-      <h1 id="rotating-text">Have you lost an item?</h1>
-      <div class="button-group">
-        <button class="btn btn-red" onclick = "window.location.href='login.html'">Yes</button>
-        <button class="btn btn-dark" onclick = "window.location.href='filler.html'">No</button> 
+  <main class="home-container">
+    <div class="left-column-home">
+      <h2 class="home-headline">
+        <span>HAVE YOU</span><br />
+        <span>LOST AN</span><br />
+        <span>ITEM?</span>
+      </h2>
+      <p>Find it with our assistance.</p>
+      <div class="login-btn">
+        <a href="login.html" style="text-decoration: none; color:#ffffff;">Get Started</a>
       </div>
+    </div>  
+    <div class="right-image">
+      <img id="slideshow" src="images/home_image1.jpg" alt="Lost item">
     </div>
-  </div>
+    
 
-  <div class="right-section">
-    <p class="assist-text">Find it with our assistance.</p>
-    <div class="image-frame">
-      <img id="slideshow-image" src="images/home_image1.jpg" alt="Metro station" />
-    </div>
-  </div>
-</main>
-
+  
 
     <!-- ======= FOOTER ======= -->
     <footer>
@@ -94,8 +87,9 @@
         <p>© 2023 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
       </div>
     </footer>
-  <script src="logic.js"></script>
+  </main>
 
+  <script src="logic.js"></script>
 </body>
 
 </html>
