@@ -362,6 +362,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
+<<<<<<< HEAD
 function toggleOptions() {
   const panel = document.getElementById("lostfound-optionsPanel");
   panel.style.display = panel.style.display === "block" ? "none" : "block";
@@ -418,4 +419,33 @@ form.addEventListener("submit", function (e) {
     }
   }
 });
+=======
+// ... all your earlier slideshow, metro lines, dropdown code ...
 
+// ✅ Your new logic goes here
+window.addEventListener("DOMContentLoaded", () => {
+  const someElement = document.getElementById("some-id");
+  if (someElement) {
+    someElement.addEventListener("click", () => {
+      // your logic here
+    });
+  }
+});
+function reportLost() {
+  window.location.href = "lost.html";
+}
+
+function reportFound() {
+  window.location.href = "found.html";
+}
+
+// ✅ Replace these two ↓↓↓
+>>>>>>> 36afe24 (Completed backend integration, Google OAuth, image upload, and profile page)
+
+function viewLost() {
+  window.location.href = "view.html?type=lost";
+}
+
+function viewFound() {
+  window.location.href = "view.html?type=found";
+}

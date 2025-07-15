@@ -1,0 +1,6 @@
+- Have you created the PostgreSQL database and tables for Lost & Found?
+- If yes, can you share:
+    - DB name
+    - Table name
+    - Column names (especially for lost/found reports)
+    - Connection details for localhost: user, password, host, port

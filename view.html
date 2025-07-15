@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>View Items</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=League+Spartan" rel="stylesheet">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-main">
+      <div class="header-left">
+        <img src="images/dmrc_logo.png" alt="DMRC Logo" />
+        <h1 style="margin-left: 10px;">Lost & Found Items</h1>
+      </div>
+      <nav class="secondary-navbar">
+        <ul>
+          <li><a href="dashboard.html">Home</a></li>
+          <li><a href="#footer">Contact</a></li>
+          <li><a href="profile.html">Profile</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="filters">
+      <h2>Filter Items</h2>
+      <label for="filterType">Type:</label>
+      <select id="filterType">
+        <option value="lost">Lost</option>
+        <option value="found">Found</option>
+      </select>
+
+      <label for="filterLine">Line:</label>
+      <select id="filterLine">
+        <option value="">All Lines</option>
+      </select>
+
+      <label for="filterStation">Station:</label>
+      <select id="filterStation">
+        <option value="">All Stations</option>
+      </select>
+
+      <label for="filterDate">Date:</label>
+      <input type="date" id="filterDate" />
+
+      <button onclick="fetchItems()">Apply Filter</button>
+    </section>
+
+    <section id="itemsContainer" class="items-list">
+      <!-- Items will be rendered here -->
+    </section>
+  </main>
+
+  <footer id="footer">
+    <div class="footer-content">
+      <p>© 2023 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    const stationsByLine = {
+      "Blue Line": ["Dwarka", "Rajiv Chowk", "Noida Sector 18"],
+      "Red Line": ["Rithala", "Kashmere Gate"],
+      "Yellow Line": ["HUDA City Centre", "New Delhi"],
+      "Pink Line": ["Lajpat Nagar", "Mayur Vihar"],
+      "Violet Line": ["ITO", "Kalkaji Mandir"],
+      "Magenta Line": ["Janakpuri West", "Botanical Garden"],
+      "Green Line": ["Inderlok", "Kirti Nagar"],
+      "Grey Line": ["Najafgarh", "Dhansa Bus Stand"],
+      "Airport Express Line": ["New Delhi", "IGI Airport"],
+      "Rapid Metro Gurgaon": ["Cyber City", "Phase 3"]
+    };
+
+    function populateFilterDropdowns() {
+      const lineSelect = document.getElementById("filterLine");
+      const stationSelect = document.getElementById("filterStation");
+
+      lineSelect.innerHTML = `<option value="">All Lines</option>`;
+      stationSelect.innerHTML = `<option value="">All Stations</option>`;
+
+      Object.keys(stationsByLine).forEach(line => {
+        const option = document.createElement("option");
+        option.value = line;
+        option.textContent = line;
+        lineSelect.appendChild(option);
+      });
+
+      lineSelect.addEventListener("change", () => {
+        const selectedLine = lineSelect.value;
+        stationSelect.innerHTML = `<option value="">All Stations</option>`;
+        (stationsByLine[selectedLine] || []).forEach(station => {
+          const opt = document.createElement("option");
+          opt.value = station;
+          opt.textContent = station;
+          stationSelect.appendChild(opt);
+        });
+      });
+    }
+
+    async function fetchItems() {
+      const type = document.getElementById("filterType").value;
+      const line = document.getElementById("filterLine").value;
+      const station = document.getElementById("filterStation").value;
+      const date = document.getElementById("filterDate").value;
+
+      let url = `/api/${type}?`;
+      if (line) url += `line=${encodeURIComponent(line)}&`;
+      if (station) url += `station=${encodeURIComponent(station)}&`;
+      if (date) url += `date=${encodeURIComponent(date)}&`;
+
+      try {
+        const res = await fetch(url);
+        const data = await res.json();
+        renderItems(data);
+      } catch (err) {
+        console.error("Failed to fetch items:", err);
+        document.getElementById("itemsContainer").innerHTML = `<p style="color:red;">Error fetching items.</p>`;
+      }
+    }
+
+    function renderItems(items) {
+      const container = document.getElementById("itemsContainer");
+      container.innerHTML = "";
+
+      if (!items.length) {
+        container.innerHTML = "<p>No items found.</p>";
+        return;
+      }
+
+      items.forEach(item => {
+        const card = document.createElement("div");
+        card.className = "item-card";
+        card.innerHTML = `
+          <h3>${item.itemName}</h3>
+          <p><strong>Type:</strong> ${item.type || "N/A"}</p>
+          <p><strong>Date:</strong> ${item.lostDate || item.foundDate}</p>
+          <p><strong>Line:</strong> ${item.line}</p>
+          <p><strong>Station:</strong> ${item.station}</p>
+          <p><strong>Remarks:</strong> ${item.remarks || "None"}</p>
+          ${item.image ? `<img src="/uploads/${item.image}" alt="Item Image" style="max-width: 200px;" />` : ""}
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    window.onload = () => {
+  populateFilterDropdowns();
+
+  // Get "type" from query string and set it to filterType dropdown
+  const params = new URLSearchParams(window.location.search);
+  const type = params.get("type"); // "lost" or "found"
+
+  if (type) {
+    const filterType = document.getElementById("filterType");
+    if (filterType) {
+      filterType.value = type;
+    }
+  }
+
+  fetchItems(); // Now fetch with updated type
+};
+
+  </script>
+      <footer>
+      <div class="footer-content">
+        <p>© 2025 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
+      </div>
+  </footer>
+</body>
+</html>

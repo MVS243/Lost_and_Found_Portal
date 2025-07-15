@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <title>Delhi Metro Lost and Found</title>
@@ -23,6 +22,8 @@
 
   <!-- ======= HEADER ======= -->
 
+  <!-- HEADER -->
+  <header>
     <div class="navbar">
       <div class="navbar-left">
         <p>Follow us on : </p>
@@ -61,13 +62,39 @@
               <li><a href="https://delhimetrorail.com/facilities">Facilities</a></li>
               <li><a href="https://delhimetrorail.com/map">Maps</a></li>
               <li><a href="https://delhimetrorail.com/faq">FAQs</a></li>
+          <li><a href="https://www.facebook.com/officialdmrc/" target="_blank"><i class="fab fa-facebook-f"></i></a></li>
+          <li><a href="https://www.instagram.com/officialdmrc/?hl=en" target="_blank"><i class="fab fa-instagram"></i></a></li>
+          <li><a href="https://x.com/OfficialDMRC" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" height="13px" fill="currentColor" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z" /></svg>
+          </a></li>
+          <li>|</li>
+          <li><a href="https://apps.apple.com/in/app/delhi-metro-rail/id691105308" target="_blank"><i class="fa-brands fa-apple"></i></a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.sraoss.dmrc" target="_blank"><i class="fa-brands fa-google-play"></i></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="header-main">
+      <div class="header-left">
+        <img src="./images/dmrc-Logo.png" alt="DMRC Logo" />
+        <div class="dmrc-title">
+          <div class="delhi">DELHI</div>
+          <div class="metro"><span class="italic-m">M</span>ETRO</div>
+        </div>
+      </div>
+      <div class="header-right">
+        <input type="text" placeholder="Search..." />
+        <nav class="secondary-navbar">
+          <ul>
+            <li><a href="dashboard.html">Home</a></li>
+            <li><a href="#footer">Contact</a></li>
+            <li><a href="profile.html">Profile</a></li>
           </ul>
         </nav>
       </div>
     </div>
 
     <!-- ======= MAIN CONTENT ======= -->
-  <main class="lostfound-container">
     <div class="lostfound-left-column">
       <aside class="lostfound-sidebar">
         <h2>Actions</h2>
@@ -75,9 +102,20 @@
           <li><i class="fa-regular fa-star"></i> <a href="lost.html">Report Lost item</a></li>
           <li><i class="fa-regular fa-star"></i> <a href="filler.html">View Reports/ Search Item</a></li>
           <hr style = " width : 90%; opacity : 70%;">
+  </header>
+
+  <main class="container">
+    <div class="left-column">
+      <div class="main-title-left">
+        <p style="font-family: 'League Spartan', sans-serif; color: #b51d1d;">Found</p>
+      </div>
+      <aside class="sidebar">
+        <h2>Actions</h2>
+        <ul class="sidebar-links">
+          <li><i class="fa-regular fa-star"></i> <a href="found.html">Report Found item</a></li>
+          <li><i class="fa-regular fa-star"></i> <a href="view.html">View Reports/ Search Item</a></li>
           <li><i class="fa-regular fa-star"></i> <a href="profile.html">Profile</a></li>
         </ul>
-      </aside>
     </div>
     <!-- ======= LEFT AREA ======= -->
     <div class="lostfound-main-area">
@@ -101,6 +139,15 @@
           <span class="error" id="itemNameError"></span>
           <label>Date & Time of Lost Item<span style="color: red;">*</span></label>
           <input type="datetime-local" name="LostDate" required placeholder="Text" />
+
+    <div class="container-form">
+      <section class="form-section">
+       <form id="foundForm" enctype="multipart/form-data" method="POST" action="/api/found">
+          <label>Item Name <span style="color: red;">*</span></label>
+          <input type="text" name="itemName" required placeholder="Text" />
+
+          <label>Date & Time of Found Item<span style="color: red;">*</span></label>
+          <input type="datetime-local" name="foundDate" required />
 
           <label for="line">Choose a line <span style="color: red;">*</span></label>
           <select id="line" name="line"  onchange="updateStations()">
@@ -139,6 +186,12 @@
 
           <div class="lostfound-button-group">
             <button onclick="resetForm()" type="reset">Cancel</button>
+          <div class="file-upload-section">
+            <label for="fileInput">Upload image (jpg, jpeg, png) <span style="color: red;">*</span></label>
+            <input type="file" id="fileInput" name="image" accept=".jpg,.jpeg,.png" required />
+          </div>
+          <div class="button-group">
+            <button type="reset">Cancel</button>
             <button type="submit">Continue</button>
           </div>
         </form>
@@ -153,5 +206,66 @@
       </div>
 </footer>
   <script src="logic.js"></script>
+</body>
+</html>
+  <footer id="footer">
+    <div class="footer-content">
+      <div class="footer-left">
+        <p>© 2025 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script -->
+ <script>
+  const stationsByLine = {
+    blue: ["Dwarka", "Rajiv Chowk", "Noida Sector 18"],
+    red: ["Rithala", "Kashmere Gate"],
+    yellow: ["HUDA City Centre", "New Delhi"],
+    pink: ["Lajpat Nagar", "Mayur Vihar"],
+    violet: ["ITO", "Kalkaji Mandir"],
+    magenta: ["Janakpuri West", "Botanical Garden"],
+    green: ["Inderlok", "Kirti Nagar"],
+    grey: ["Najafgarh", "Dhansa Bus Stand"],
+    airport: ["New Delhi", "IGI Airport"],
+    rapid: ["Cyber City", "Phase 3"]
+  };
+
+  function updateStations() {
+    const line = document.getElementById("line").value;
+    const stationSelect = document.getElementById("station");
+    stationSelect.innerHTML = '<option value="">Select a Station</option>';
+    (stationsByLine[line] || []).forEach((station) => {
+      const opt = document.createElement("option");
+      opt.value = station;
+      opt.textContent = station;
+      stationSelect.appendChild(opt);
+    });
+  }
+  document.getElementById("foundForm").addEventListener("submit", async function (e) {
+  e.preventDefault();
+  const form = e.target;
+  const formData = new FormData(form);
+
+  try {
+    const res = await fetch("/api/found", {
+      method: "POST",
+      body: formData,
+    });
+
+    if (res.ok) {
+      alert("Found item submitted successfully!");
+      form.reset();
+    } else {
+      const err = await res.text();
+      alert("Submission failed: " + err);
+    }
+  } catch (err) {
+    console.error("Error submitting form:", err);
+    alert("Submission failed.");
+  }
+});
+
+</script>
 </body>
 </html>
