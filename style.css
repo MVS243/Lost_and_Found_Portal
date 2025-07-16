@@ -2,26 +2,15 @@
 /*       COMMON LAYOUT     */
 /* ======================= */
 
-.league-spartan {
-  font-family: "League Spartan", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 700;
-  font-style: bolder;
-}
-.lato-light {
-  font-family: "Lato", sans-serif;
-  font-weight: 300;
-  font-style: normal;
-}
-
 body {
   font-family: 'Lato', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: rgb(255, 255, 255);
+  background-color: #f1f1f1;
   overflow-x: hidden;
   box-sizing: border-box;
 }
+
 /*        FOOTER STYLES    */
 .footer-content {
   left: 0;
@@ -29,7 +18,7 @@ body {
   width: 100%;
   background-color: #ffffffe0;
   text-align: center;
-  position: relative;
+  position: fixed;
   font-size: 10px;
   color: #555;
 }
@@ -95,110 +84,57 @@ ul a:hover {
 /*        HOME PAGE        */
 /* ======================= */
 
-/* === Reset/Global === */
-body {
-  margin: 0;
-  font-family: 'Helvetica Neue', sans-serif;
+/* Title */
+.home-headline{
+  font-size: 55px;
+  color: #c42020;
 }
 
-h1 {
-  font-size: 2.8rem;
-  color: #000;
-  margin-bottom: 1.5rem;
-  text-transform: uppercase;
-}
-
-.main-container {
+/* Main container */
+.container {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
-  padding: 2rem;
-  gap: 2rem;
-  flex-wrap: wrap;
+  align-items: center;
+  margin-bottom: 20px;
 }
 
-/* === Left Section === */
-#rotating-text{
-  font-family:'League Spartan', sans-serif;
-  font-size: 80px;
-}
-.left-section {
-  flex: 1 1 400px;
+/* Left column: Text */
+.left-column-home {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
 }
 
-.question-box {
-  margin-top: 40px;
-  background-color: #ffffff;
+.left-column-home p {
+  font-size: 18px;
+  color: #222;
 }
 
-.button-group {
+/* Right column: Image */
+.right-image {
+  flex: 0.7;
   display: flex;
-  width:fit-content;
-  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
 }
 
-.btn {
-  padding: 0.8rem 2rem;
-  font-size: 1rem;
-  font-weight: bold;
-  border: none;
-  color: white;
-  cursor: pointer;
+.right-image img {
+  max-width: 100%;
+  margin-right: 5%;
+  max-height: 60%;
 }
 
-.btn-red {
-  background-color: #be0000;
-  width: 120px;
-}
-.btn-red:hover{
-  background-color: #e40000;
-}
-.btn-dark {
-  background-color: #333;
-  width: 120px;
-}
-.btn-dark:hover {
-  background-color: #626262;
-}
-.about-link {
-  background-color: #d3d3d3;
-  padding: 1rem;
-  font-weight: bold;
-  font-size: 1.2rem;
-}
-
-/* === Right Section === */
-.right-section {
-  flex: 1 1 500px;
-  text-align: center;
-}
-
-.assist-text {
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
-}
-
-.image-frame {
-  border: 6px solid #b40000;
-  padding: 5px;
-}
-
-.image-frame img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-}
-#slideshow-image {
-  transition: opacity 0.5s ease-in-out;
+.left-column-home{
+  display: flex;
+  flex-direction: column;
+  margin-left: 10px;  
 }
 
 /*Start button AND login+register buttons*/
 .login-btn {
   margin-top: 10%;
-  background-color: #610000;
+  background-color: #d42121;
   color: #fff;
   border: none;
   border-radius: 5%;
@@ -214,7 +150,6 @@ h1 {
 .login-btn:hover {
   background-color: #e92f2f;
 }
-
 
 
 /* ======================= */
@@ -266,20 +201,14 @@ h1 {
   padding: 2rem;
   background: white;
   border-radius: 8px;
-  padding: 1%;
-  width: 50%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  background-color: #fdd5e9;
-  
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
 
 .login-box label {
   display: block;
-  margin-top: 1%;
+  margin-top: 2%;
   font-weight: bold;
-  font-family: 'Lato', sans-serif;
 }
 
 .required {
@@ -299,29 +228,24 @@ h1 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 2%;
+  margin-top: 5%;
   width: 100%;
-  background-color: #0074c2;
+  background-color: #d8bcbc;
   color: #000;
   border: none;
-  border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
 }
 
 .form-links {
-  margin-left: 2%;
-  margin-right: 2%;
-  margin-top: 2%;
+  margin-top: 5%;
   text-align: right;
   font-size: 13px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap:50%;
+  display: block;
 }
 .right-link{
   padding-top: 1%;
+  display: block;
   text-align: right;
 }
 
@@ -355,11 +279,10 @@ h1 {
   padding: 1%;
   width: 50%;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  background-color: #fdd5e9;
+  background-color: #fff;
 }
 
 .register-box label {
-  font-family: 'Lato', sans-serif;
   display: block;
   margin-top: 1%;
   font-weight: bold;
@@ -384,32 +307,15 @@ h1 {
   align-items: center;
   margin-top: 2%;
   width: 100%;
-  background-color: #0074c2;
+  background-color: #d8bcbc;
+  color: #000;
   border: none;
-  border-radius:10px;
   cursor: pointer;
   font-size: 12px;
 }
 
-.input-wrapper {
-  position: relative;
-  width: fit-content;
-}
 
-.input-wrapper input {
-  padding: 0.6rem 2.5rem 0.6rem 0.8rem;  /* right padding for icon */
-  font-size: 1rem;
-  width: 250px;
-}
 
-.eye-icon{
-  position: absolute;
-  top: 40%;
-  right: 10px;
-  transform: translateY(-50%);
-  width: 20px;
-  cursor: pointer;
-}
 /* ======================= */
 /*       LAYOUT WRAPPER    */
 /* ======================= */
@@ -755,26 +661,39 @@ textarea::placeholder {
 /* ======================= */
 /*     RESPONSIVE RULES    */
 /* ======================= */
-@media (max-width:800px){
+@media (max-width: 800px) {
+  .sidebar,
+  .secondary-navbar {
+    display: none;
+  }
+
+  .form-section {
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 10px !important;
+    box-sizing: border-box;
+  }
+
   .container {
-    flex-direction: column;
-    align-items: center;
+    display: block;
   }
 
-  .left-column-home,
-  .index-rightside {
+  .container-form,
+  .container {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 10px !important;
+    margin: 0 !important;
+    box-sizing: border-box;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
     width: 100%;
-    text-align: center;
   }
-
-  .right-image img {
-    max-width: 90%;
-  }
-  .secondary-navbar{
-    display:none;
-  }
-
 }
+
 /* ======================= */
 /*    SOCIAL ICON COLORS   */
 /* ======================= */
@@ -978,27 +897,20 @@ header {
     gap: 30px;
     padding: 50px 20px;
 }
-.card:hover{
-  box-shadow: 0 10px 10px rgba(255, 255, 255, 0);
-}
+
 .card {
-    background-color: white;
-    border: 2px solid #be0000;
-    padding: 40px;
+    background: #ffffff;
+    padding: 30px;
     border-radius: 8px;
-    box-shadow: 0 10px 10px rgb(0, 0, 0);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     text-align: center;
     width: 250px;
 }
-.card p {
-  text-align: center;
-  font-size: 70px;
-  font-weight: bolder;
-  font-family: 'League Spartan', sans-serif;
-  color: #be0000;
-  margin: 5%;
-  letter-spacing: 0.7px;
-  text-shadow: 0 2px 4px #000;
+
+.card h2 {
+    color: #d32f2f;
+    font-size: 32px;
+    margin-bottom: 20px;
 }
 
 .card button {
@@ -1006,19 +918,16 @@ header {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
-    background: #a40000;
+    background: #d32f2f;
     color: #ffffff;
-    border: 1px solid white;
-    border-radius: 10px;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
     font-size: 16px;
-    font-family: 'Lato', sans-serif;
-    box-shadow: 0 3px 4px rgb(0, 0, 0);
 }
 
 .card button:hover {
-    background:  #ff0000;
-    box-shadow: 0 10px 10px rgba(0, 0, 0, 0);
+    background: #b71c1c;
 }
 
 
@@ -1029,10 +938,15 @@ header {
 /* User Details */
 .user-details {
   flex: 1;
-  background-color: #ffffda;
+  background-color: #fafafa;
   border-radius: 10px;
   padding: 2%;
   box-shadow: 0 0 10px #eee;
+}
+
+.user-details h3 {
+  color: #c7a7f3;
+  margin-bottom: 2%;
 }
 
 .user-details form {
@@ -1042,344 +956,11 @@ header {
 
 .user-details label {
   margin-top: 2%;
-  font-family: 'Lato', sans-serif;
-  font-weight:bold;
 }
 
 .user-details input {
   padding: 1%;
   border-radius: 5px;
-  font-family: 'Lato', sans-serif;
   border: 1px solid #ccc;
   background-color: #f6f9fb;
-}
-
-/*======================================*/
-/*           LOST and Found             */
-/*======================================*/
-/* layout */
-.lostfound-container {
-  display: flex;
-  padding: 20px;
-}
-
-.lostfound-container-form {
-  background-color: #d6f0fc;
-  width: 100%;
-  padding: 20px;
-  border-radius: 20px;
-  margin-left: 10%;;
-}
-
-/* action stles */
-.lostfound-left-column {
-  display: flex;
-  flex-direction: column;
-  width: 25%;
-  margin-right: 10px; /* unified value */
-}
-
-.lostfound-sidebar {
-  width: 100%;
-  height: 100%;
-  background: rgb(255, 253, 253);
-  border: 1px solid #d1d1d1;
-  border-radius: 8px;
-  box-shadow: none;
-  padding: 0 0 10px 0;
-  margin-bottom: 20px;
-  margin-top: 0; /* unified with .sidebar */
-  box-shadow: 5px 5px 5px gray;
-  box-sizing: border-box;
-  word-wrap: break-word;
-}
-
-.lostfound-sidebar h2 {
-  background:#ffffff;
-  color: rgb(0, 0, 0);
-  margin: 0;
-  padding: 12px 16px;
-  font-size: 18px;
-  border-bottom: 1px solid #d1d1d1;
-  border-radius: 8px 8px 0 0;
-}
-
-.lostfound-sidebar-links {
-  margin: 0;
-  padding: 0;
-}
-
-.lostfound-sidebar-links a{
-  text-decoration: none;
-  color: rgb(0, 0, 0);
-}
-.lostfound-sidebar-links li a:hover{
-  color: #7b0000;
-}
-
-.lostfound-sidebar-links li {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 16px;
-  padding: 10px 0 10px 12px;
-  text-decoration: none;
-}
-
-.lostfound-sidebar-links i {
-  color: #000000;
-  font-size: 18px;
-}
-/*        FORM STYLES      */
-.lostfound-container-form{
-  width:100%;
-  max-width : 100%;
-}
-.lostfound-form-section {
-  flex: 1;
-  width: 100%;
-  max-width: 100%;
-  padding:1rem;
-  box-sizing: border-box;
-}
-#foundForm {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-input,
-select,
-textarea {
-  background: #fafbfc;
-  border: 1px solid #e0e0e0;
-  border-radius: 4px;
-  color: #222;
-  font-size: 15px;
-  padding: 10px 12px;
-  margin-bottom: 12px;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: #bdbdbd;
-  font-size: 15px;
-}
-
-.invalid {
-  border: 2px solid red;
-}
-
-.error {
-  color: red;
-  font-size: 13px;
-  margin-top: -10px;
-  margin-bottom: 10px;
-  display: none;
-  padding-left: 2px;
-  transition: all 0.2s ease-in-out;
-  
-}
-/* buttons */
-.lostfound-button-group {
-  display: flex;
-  gap: 12px;
-  margin-top: 18px;
-  margin-left: 60%;
-}
-
-.lostfound-button-group button[type="submit"] {
-  background: #1976d2;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  padding: 10px 28px;
-  font-size: 16px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
-  transition: background 0.2s, box-shadow 0.2s;
-}
-
-.lostfound-button-group button[type="submit"]:hover {
-  background: #1251a3;
-  box-shadow: 0 4px 16px rgba(25, 118, 210, 0.12);
-}
-
-.lostfound-button-group button[type="reset"] {
-  background: #fff;
-  color: #1976d2;
-  border: 1px solid #1976d2;
-  border-radius: 6px;
-  padding: 10px 22px;
-  font-size: 16px;
-  font-family: 'Lato', sans-serif;
-  font-weight: 500;
-  cursor: pointer;
-  transition: background 0.2s, color 0.2s;
-}
-
-/* title and text */
-.lostfound-logo {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  color: rgb(123, 0, 0);
-  padding: 10px;
-  font-family: 'League Spartan', sans-serif;
-  font-weight: 200;
-}
-
-.lostfound-form-section p {
-  font-size: 30px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-align: left;
-  font-family: 'Lato', sans-serif;
-  color: #350c0c;
-}
-
-.lostfound-main-title-left {
-  width: 200px;
-  margin-left: 0;
-  margin-bottom: 0; /* unified */
-  align-items: flex-start;
-  padding-bottom: 10px;
-}
-
-.lostfound-main-title-left p {
-  text-shadow: 0 2px 4px #000;
-  text-align: center;
-  font-size: 70px;
-  font-weight: bolder;
-  font-family: 'League Spartan', sans-serif;
-  color: #be0000;
-  margin: 5%;
-  letter-spacing: 0.7px;
-}
-/*     RESPONSIVE RULES    */
-
-@media (max-width:100%) {
-  .lostfound-main-right img{
-    display: none;
-  }
-}
-@media (max-width: 800px) {
-  .lostfound-sidebar,
-  .lostfound-secondary-navbar {
-    display: none;
-  }
-
-  .lostfound-form-section {
-    width: 100% !important;
-    margin: 0 auto !important;
-    padding: 0 10px !important;
-    box-sizing: border-box;
-  }
-  .lostfound-container-form,
-  .lostfound-container {
-    max-width: 100% !important;
-    width: 100% !important;
-    padding: 0 10px !important;
-    margin: 0 !important;
-  }
-
-  html, body {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-  }
-
-  .lostfound-main-area{
-    width: 95% !important;
-  }
-  .lostfound-left-column{
-    display: none;
-  }
-}
-
-/* Centre of the page */
-.lostfound-main-area{
-  width: 50%;
-}
-
-/* FILE UPLOAD AREA */
-.lostfound-file-upload-section label {
-  font-weight: 600;
-  font-size: 15px;
-  margin-bottom: 6px;
-  display: block;
-}
-
-.lostfound-file-upload-area {
-  border: 2px dashed #e0e0e0;
-  border-radius: 8px;
-  background: #fcfcfc;
-  min-height: 20%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: #bdbdbd;
-  font-size: 18px;
-  margin-bottom: 4px;
-  cursor: pointer;
-}
-
-.lostfound-file-upload-area i {
-  font-size: 15px;
-  padding:5px;
-  margin-top: 4px;
-}
-
-.lostfound-file-upload-info {
-  font-size: 10px;
-  color: #bdbdbd;
-  margin-bottom: 0px;
-}
-/* MENU BAR */
-.lostfound-floating-toggle{
-  display: none;
-  position: absolute;
-  top: 150px;
-  right:0;
-  transform: translateX(-50%);
-  padding: 8px 14px;
-  border-radius: 9px;
-  cursor: pointer;
-  z-index: 999;
-  
-  padding: 6px;
-  width: fit-content;
-}
-.lostfound-floating-toggle img{
-  height:35px;
-}
-.lostfound-mobile-options-panel {
-  display: none;
-  position: absolute;
-  top:125px;
-  margin-left: 75%;
-  transform: translateX(-50%);
-  background: rgb(255, 255, 255);
-  padding: 5px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-  z-index: 999;
-  font-family: 'Lato', sans-serif;
-}
-.lostfound-mobile-options-panel a{
-  text-decoration: none;
-  color: black;
-}
-.lostfound-mobile-options-panel a:hover{
-  color: rgb(114, 114, 114);
-}
-@media (max-width: 800px) {
-  .lostfound-floating-toggle{
-    display:block;
-  }
-  .lostfound-mobile-options-panel {
-    width: 19%;
-  }
 }

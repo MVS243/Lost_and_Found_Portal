@@ -1,23 +1,9 @@
 //home page
-//text-slideshow
-const texts = [
-    "Have you lost an item?",
-    "Have you found an item?"
-  ];
-  let textIndex = 0;
-  const rotatingText = document.getElementById("rotating-text");
-
-  setInterval(() => {
-    textIndex = (textIndex + 1) % texts.length;
-    rotatingText.textContent = texts[textIndex];
-  }, 4000); // every 4 seconds
-
-  //image-slideshow
-const images = ["images/home_image1.jpg",
-  "images/home_image2.jpg",
-  "images/home_image3.jpg"]; //image paths
+const images = ["images/home_image.jpg",
+  "images/home_image.jpg",
+  "images/home_image.jpg"]; //image paths
     let index = 0;
-    const imgElement = document.getElementById("slideshow-image");
+    const imgElement = document.getElementById("slideshow");
 
     setInterval(() => {
       index = (index + 1) % images.length;
@@ -26,7 +12,7 @@ const images = ["images/home_image1.jpg",
         imgElement.src = images[index];
         imgElement.style.opacity = 1;
       }, 500);
-    }, 4000); // every 4 seconds
+    }, 3000);
 
 //dashboard
 function reportLost() {
@@ -323,16 +309,13 @@ const stationsByLine = {
     "Phase 3"
   ]
 };
-const lineSelect = document.getElementById('line');
+  const lineSelect = document.getElementById('line');
   const stationSelect = document.getElementById('station');
-  const form = document.getElementById('foundForm');
-  const itemName = document.getElementById("itemName");
-  const lineError = document.getElementById("lineError");
-  const stationError = document.getElementById("stationError");
+
   lineSelect.addEventListener('change', () => {
     const selectedLine = lineSelect.value;
     const stations = stationsByLine[selectedLine] || []           
-    stationSelect.innerHTML = '<option value="" disabled selected>Select a Station</option>'; // Clear old stations and add new stations
+    stationSelect.innerHTML = '<option value="">Select a Station</option>'; // Clear old stations and add new stations
     stations.forEach(station => {
       const option = document.createElement('option');
       option.value = station;
@@ -362,64 +345,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 });
-<<<<<<< HEAD
-function toggleOptions() {
-  const panel = document.getElementById("lostfound-optionsPanel");
-  panel.style.display = panel.style.display === "block" ? "none" : "block";
-}
-form.addEventListener("submit", function (e) {
-  let isValid = true;
-
-  // Check item name
-  const itemNameInput = form.querySelector("input[name='itemName']");
-  const itemNameError = document.getElementById("itemNameError");
-  if (!itemNameInput.value.trim()) {
-    itemNameInput.classList.add("invalid");
-    itemNameError.textContent = "Item name is required.";
-    itemNameError.style.display = "block";
-    isValid = false;
-  } else {
-    itemNameInput.classList.remove("invalid");
-    itemNameError.textContent = "";
-    itemNameError.style.display = "none";
-  }
-
-  // Check line
-  const lineSelect = document.getElementById("line");
-  const lineError = document.getElementById("lineError");
-  if (!lineSelect.value) {
-    lineSelect.classList.add("invalid");
-    lineError.textContent = "Please select a line.";
-    lineError.style.display = "block";
-    isValid = false;
-  } else {
-    lineSelect.classList.remove("invalid");
-    lineError.textContent = "";
-    lineError.style.display = "none";
-  }
-
-  // Check station
-  if (!stationSelect.value) {
-    stationSelect.classList.add("invalid");
-    stationError.textContent = "Please select a station.";
-    stationError.style.display = "block";
-    isValid = false;
-  } else {
-    stationSelect.classList.remove("invalid");
-    stationError.textContent = "";
-    stationError.style.display = "none";
-  }
-
-  // Prevent submission if not valid
-  if (!isValid) {
-    e.preventDefault();
-    const firstInvalid = form.querySelector(".invalid");
-    if (firstInvalid) {
-      firstInvalid.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  }
-});
-=======
 // ... all your earlier slideshow, metro lines, dropdown code ...
 
 // ✅ Your new logic goes here
@@ -440,7 +365,6 @@ function reportFound() {
 }
 
 // ✅ Replace these two ↓↓↓
->>>>>>> 36afe24 (Completed backend integration, Google OAuth, image upload, and profile page)
 
 function viewLost() {
   window.location.href = "view.html?type=lost";
