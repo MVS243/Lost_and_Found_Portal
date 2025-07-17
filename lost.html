@@ -22,133 +22,184 @@
 <body>
 
   <!-- ======= HEADER ======= -->
+  <div class="navbar">
+    <div class="navbar-left">
+      <p>Follow us on : </p>
+      <ul class="navbar-left-list1">
+        <li><a href="https://www.facebook.com/officialdmrc/" target="_blank"><img src="images/fb_icon.png" alt="FB" height="20"></a></li>
+        <li><a href="https://www.instagram.com/officialdmrc/?hl=en" target="_blank"><img src="images/instagram_icon.png" alt="Insta" height="20"></a></li>
+        <li><a href="https://x.com/OfficialDMRC" target="_blank"><img src="images/x_icon.png" alt="X" height="20"></a></li>
+        <li><a href="https://apps.apple.com/in/app/delhi-metro-rail/id691105308" target="_blank"><img src="images/apple_logo.png" alt="Apple" height="20"></a></li>
+        <li><a href="https://play.google.com/store/apps/details?id=com.sraoss.dmrc" target="_blank"><img src="images/playstore_icon.png" alt="Playstore" height="20"></a></li>
+      </ul>
+    </div>
+  </div>
 
-    <div class="navbar">
-      <div class="navbar-left">
-        <p>Follow us on : </p>
-        <ul class="navbar-left-list1">
-          <li><a href="https://www.facebook.com/officialdmrc/" target="_blank"><img src="images/fb_icon.png" alt="FB" height="20"></a></li>
-          <li><a href="https://www.instagram.com/officialdmrc/?hl=en" target="_blank"><img src="images/instagram_icon.png" alt="Insta" height="20"></a></li>
-          <li><a href="https://x.com/OfficialDMRC" target="_blank"><img src="images/x_icon.png" alt="X" height="20"></a></li>
-          <li><a href="https://apps.apple.com/in/app/delhi-metro-rail/id691105308" target="_blank"><img src="images/apple_logo.png" alt="Play" height="20"></a></li>
-          <li><a href="https://play.google.com/store/apps/details?id=com.sraoss.dmrc" target="_blank"><img src="images/playstore_icon.png" alt="Play" height="20"></a></li>
+  <div class="header-main">
+    <div class="header-left">
+      <img src="images/dmrc_logo.png" alt="DMRC Logo" />
+    </div>
+
+    <div class="header-right">
+      <div class="helpline">
+        <img src="images/helpline.svg" alt="Helpline" height="15">
+        Helpline <br>
+        <span style="color: green; font-weight: bold;">155370</span>
+      </div>
+
+      <div class="search-bar">
+        <input type="text" placeholder="Search...">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+
+      <nav class="secondary-navbar">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="filler.html">Contact</a></li>
+          <li><a href="https://delhimetrorail.com/facilities">Facilities</a></li>
+          <li><a href="https://delhimetrorail.com/map">Maps</a></li>
+          <li><a href="https://delhimetrorail.com/faq">FAQs</a></li>
         </ul>
-      </div>
+      </nav>
     </div>
+  </div>
 
-    <!-- ======= MAIN HEADER ======= -->
-    <div class="header-main">
-      <div class="header-left">
-        <img src="images/dmrc_logo.png" alt="DMRC Logo" />
-      </div>
-
-      <div class="header-right">
-        <div class="helpline">
-          <img src="images/helpline.svg" alt="Helpline" height="15">
-          Helpline <br>
-          <span style="color: green; font-weight: bold;">155370</span>
-        </div>
-
-       
-
-        <nav class="secondary-navbar">
-          <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="https://delhimetrorail.com/contact-us">Contact</a></li>
-              <li><a href="https://delhimetrorail.com/facilities">Facilities</a></li>
-              <li><a href="https://delhimetrorail.com/map">Maps</a></li>
-              <li><a href="https://delhimetrorail.com/faq">FAQs</a></li>
-          </ul>
-        </nav>
-      </div>
-    </div>
-
-    <!-- ======= MAIN CONTENT ======= -->
+  <!-- ======= MAIN CONTENT ======= -->
   <main class="lostfound-container">
     <div class="lostfound-left-column">
       <aside class="lostfound-sidebar">
         <h2>Actions</h2>
         <ul class="lostfound-sidebar-links">
-          <li><i class="fa-regular fa-star"></i> <a href="found.html">Report Found item</a></li>
-          <li><i class="fa-regular fa-star"></i> <a href="view.html">View Reports/ Search Item</a></li>
-          <hr style = " width : 90%; opacity : 70%;">
+          <li><i class="fa-regular fa-star"></i> <a href="lost.html">Report Lost item</a></li>
+          <li><i class="fa-regular fa-star"></i> <a href="view.html">View Reports / Search Item</a></li>
+          <hr style="width: 90%; opacity: 70%;">
           <li><i class="fa-regular fa-star"></i> <a href="profile.html">Profile</a></li>
         </ul>
       </aside>
     </div>
-    <!-- ======= LEFT AREA ======= -->
+
     <div class="lostfound-main-area">
-    <div class="lostfound-main-title-left">
-        <p style="font-family: 'League Spartan', sans-serif; color: #b51d1d; text-align: center;">Found</p>
+      <div class="lostfound-main-title-left">
+        <p style="font-family: 'League Spartan', sans-serif; color: #b51d1d; text-align: center;">Lost</p>
       </div>
-    <div class="lostfound-floating-toggle" onclick="toggleOptions()">
-      <img src = "images/burger-bar.png"></div>
+
+      <div class="lostfound-floating-toggle" onclick="toggleOptions()">
+        <img src="images/burger-bar.png">
+      </div>
       <div class="lostfound-mobile-options-panel" id="lostfound-optionsPanel">
-  <!-- Put your options like profile, actions, etc. -->
-       <a href="found.html">Report</a><br>
-       <a href="view.html">View Reports</a><br>
-       <a href="profile.html">Profile</a><br>
-    </div>
-    <!--           FORM SECTION             -->
-    <div class="lostfound-container-form">
-      <section class="lostfound-form-section">
-        <form id="foundForm" novalidate>
-          <label>Item Name <span style="color: red;">*</span></label>
-          <input type="text" name="itemName" placeholder="Item Name" />
-          <span class="error" id="itemNameError"></span>
-          <label>Date & Time of Found Item<span style="color: red;">*</span></label>
-          <input type="datetime-local" name="LostDate" required placeholder="Text" />
+        <a href="lost.html">Report</a><br>
+        <a href="view.html">View Reports</a><br>
+        <a href="profile.html">Profile</a><br>
+      </div>
 
-          <label for="line">Choose a line <span style="color: red;">*</span></label>
-          <select id="line" name="line"  onchange="updateStations()">
-            <option value="" disabled selected>Select a Line</option>
-            <option value="blue">Blue Line</option>
-            <option value="red">Red Line</option>
-            <option value="yellow">Yellow Line</option>
-            <option value="pink">Pink Line</option>
-            <option value="violet">Violet Line</option>
-            <option value="magenta">Magenta Line</option>
-            <option value="green">Green Line</option>
-            <option value="grey">Grey Line</option>
-            <option value="airport">Airport Express Line</option>
-            <option value="rapid">Rapid Metro Gurgaon</option>
+      <!-- FORM SECTION -->
+      <div class="lostfound-container-form">
+        <section class="lostfound-form-section">
+          <form id="lostForm" action="/api/lost" method="POST" enctype="multipart/form-data" novalidate>
+            <label>Item Name <span style="color: red;">*</span></label>
+            <input type="text" name="itemName" required placeholder="Item Name" />
+            <span class="error" id="itemNameError"></span>
+
+            <label>Date & Time of Lost Item <span style="color: red;">*</span></label>
+            <input type="datetime-local" name="lostDate" required />
+
+            <label for="line">Choose a line <span style="color: red;">*</span></label>
+            <select id="line" name="line" required onchange="updateStations()">
+              <option value="" disabled selected>Select a Line</option>
+              <option value="blue">Blue Line</option>
+              <option value="red">Red Line</option>
+              <option value="yellow">Yellow Line</option>
+              <option value="pink">Pink Line</option>
+              <option value="violet">Violet Line</option>
+              <option value="magenta">Magenta Line</option>
+              <option value="green">Green Line</option>
+              <option value="grey">Grey Line</option>
+              <option value="airport">Airport Express Line</option>
+              <option value="rapid">Rapid Metro Gurgaon</option>
             </select>
-            <span class = "error" id = "lineError"></span>     <!-- ERROR HANDLING -->
+            <span class="error" id="lineError"></span>
 
-          <label for="station">Choose a Station:<span style="color: red;">*</span></label>
-          <select id="station" name="station" >
-            <option value="" disabled selected>Select a Station</option>
-          </select>
-          <span class="error" id="stationError"></span>
+            <label for="station">Choose a Station: <span style="color: red;">*</span></label>
+            <select id="station" name="station" required>
+              <option value="" disabled selected>Select a Station</option>
+            </select>
+            <span class="error" id="stationError"></span>
 
-          <label>Remarks (optional)</label>
-          <textarea name="remarks" placeholder="Any extra details about the location or the item."></textarea>
+            <label>Remarks (optional)</label>
+            <textarea name="remarks" placeholder="Any extra details about the location or the item."></textarea>
 
-          <div class="lostfound-file-upload-section">
-            <label>File Upload (any previous pictures)</label>
-            <div class="lostfound-file-upload-area">
-              <i class="fa-regular fa-cloud-arrow-up"></i>
-              <span>Click or drag file to this area to upload</span>
+            <label>Upload image (jpg, jpeg, png) <span style="color: red;">*</span></label>
+            <input type="file" name="image" accept=".jpg,.jpeg,.png" required />
+
+            <div class="lostfound-button-group">
+              <button type="reset">Cancel</button>
+              <button type="submit">Continue</button>
             </div>
-            <div class="lostfound-file-upload-info">Formats accepted are .jpg .jpeg .png</div>
-            <input type="file" accept=".jpg,.jpeg,.png" style="display:none;" />
-          </div>
-
-          <div class="lostfound-button-group">
-            <button onclick="resetForm()" type="reset">Cancel</button>
-            <button type="submit">Continue</button>
-          </div>
-        </form>
-      </section>
-    </div>
+          </form>
+        </section>
+      </div>
     </div>
   </main>
 
-<footer>
-      <div class="footer-content">
-        <p>© 2023 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
-      </div>
-</footer>
-  <script src="logic.js"></script>
+  <!-- ======= FOOTER ======= -->
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ======= FUNCTIONALITY SCRIPT ======= -->
+  <script>
+    // Update station options based on line
+    const stationsByLine = {
+      blue: ["Dwarka", "Rajiv Chowk", "Noida Sector 18"],
+      red: ["Rithala", "Kashmere Gate"],
+      yellow: ["HUDA City Centre", "New Delhi"],
+      pink: ["Lajpat Nagar", "Mayur Vihar"],
+      violet: ["ITO", "Kalkaji Mandir"],
+      magenta: ["Janakpuri West", "Botanical Garden"],
+      green: ["Inderlok", "Kirti Nagar"],
+      grey: ["Najafgarh", "Dhansa Bus Stand"],
+      airport: ["New Delhi", "IGI Airport"],
+      rapid: ["Cyber City", "Phase 3"]
+    };
+
+    function updateStations() {
+      const line = document.getElementById('line').value;
+      const stationSelect = document.getElementById('station');
+      stationSelect.innerHTML = '<option value="" disabled selected>Select a Station</option>';
+      (stationsByLine[line] || []).forEach(station => {
+        const opt = document.createElement('option');
+        opt.value = station;
+        opt.textContent = station;
+        stationSelect.appendChild(opt);
+      });
+    }
+
+    // Submit form with fetch
+    document.getElementById('lostForm').addEventListener('submit', async function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const formData = new FormData(form);
+
+      const res = await fetch('/api/lost', {
+        method: 'POST',
+        body: formData
+      });
+
+      if (res.ok) {
+        alert('Lost item submitted successfully!');
+        form.reset();
+      } else {
+        const err = await res.text();
+        alert('Submission failed: ' + err);
+      }
+    });
+
+    function toggleOptions() {
+      const panel = document.getElementById("lostfound-optionsPanel");
+      panel.classList.toggle("visible");
+    }
+  </script>
 </body>
 </html>
