@@ -67,26 +67,24 @@
     </div>
   </header>
 
-  <!-- ======= MAIN CONTENT ======= -->
-  <main class="main-container">
-  <div class="left-section">
-    <div class="question-box">
-      <h1 id="rotating-text">Have you lost an item?</h1>
-      <div class="button-group">
-        <button class="btn btn-red" onclick = "window.location.href='login.html'">Yes</button>
-        <button class="btn btn-dark" onclick = "window.location.href='filler.html'">No</button> 
+ <!-- ======= MAIN CONTENT ======= -->
+  <main class="container">
+    <div class="left-column-home">
+      <h2 class="home-headline">
+        <span>HAVE YOU</span><br />
+        <span>LOST AN</span><br />
+        <span>ITEM?</span>
+      </h2>
+      <p>Find it with our assistance.</p>
+      <div class="login-btn">
+        <a href="login.html" style="text-decoration: none; color:#ffffff;">Get Started</a>
       </div>
     </div>
-  </div>
 
-  <div class="right-section">
-    <p class="assist-text">Find it with our assistance.</p>
-    <div class="image-frame">
-      <img id="slideshow-image" src="images/home_image1.jpg" alt="Metro station" />
+    <div class="right-image">
+      <img id="slideshow" src="images/home_image.jpg" alt="Lost item">
     </div>
-  </div>
-</main>
-
+  
 
     <!-- ======= FOOTER ======= -->
     <footer>
@@ -94,8 +92,10 @@
         <p>© 2025 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
       </div>
     </footer>
-  <script src="logic.js"></script>
+  </main>
 
+  <script src="logic.js"></script>
 </body>
 
 </html>
+
