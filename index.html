@@ -22,7 +22,7 @@
 <body>
 
   <!-- ======= HEADER ======= -->
-  <header>
+
     <div class="navbar">
       <div class="navbar-left">
         <p>Follow us on : </p>
@@ -49,11 +49,6 @@
           <span style="color: green; font-weight: bold;">155370</span>
         </div>
 
-        <div class="search-bar">
-          <input type="text" placeholder="Search...">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
-
         <nav class="secondary-navbar">
           <ul>
               <li><a href="index.html">Home</a></li>
@@ -65,37 +60,36 @@
         </nav>
       </div>
     </div>
-  </header>
 
- <!-- ======= MAIN CONTENT ======= -->
-  <main class="container">
-    <div class="left-column-home">
-      <h2 class="home-headline">
-        <span>HAVE YOU</span><br />
-        <span>LOST AN</span><br />
-        <span>ITEM?</span>
-      </h2>
-      <p>Find it with our assistance.</p>
-      <div class="login-btn">
-        <a href="login.html" style="text-decoration: none; color:#ffffff;">Get Started</a>
+
+  <!-- ======= MAIN CONTENT ======= -->
+  <main class="main-container">
+  <div class="left-section">
+    <div class="question-box">
+      <h1 id="rotating-text">Have you lost an item?</h1>
+      <div class="button-group">
+        <button class="btn btn-red" onclick = "window.location.href='login.html'">Get Started</button>
       </div>
     </div>
+  </div>
 
-    <div class="right-image">
-      <img id="slideshow" src="images/home_image.jpg" alt="Lost item">
+  <div class="right-section">
+    <p class="assist-text">Find it with our assistance.</p>
+    <div class="image-frame">
+      <img id="slideshow-image" src="images/home_image1.jpg" alt="Metro station" />
     </div>
-  
+  </div>
+</main>
+
 
     <!-- ======= FOOTER ======= -->
     <footer>
       <div class="footer-content">
-        <p>© 2025 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
+        <p>© 2023 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
       </div>
     </footer>
-  </main>
-
   <script src="logic.js"></script>
+
 </body>
 
 </html>
-

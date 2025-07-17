@@ -5,19 +5,21 @@
   <title>View Items</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=League+Spartan" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Caveat:wght@400..700&family=League+Spartan:wght@100..900&family=Oi&family=Reenie+Beanie&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
 
   <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <header>
+
     <div class="navbar">
       <div class="navbar-left">
         <p>Follow us on : </p>
@@ -33,22 +35,27 @@
     <div class="header-main">
       <div class="header-left">
         <img src="images/dmrc_logo.png" alt="DMRC Logo" />
-        <h1 style="margin-left: 10px;">Lost & Found Items</h1>
       </div>
       <nav class="secondary-navbar">
         <ul>
-          <li><a href="dashboard.html">Home</a></li>
-          <li><a href="#footer">Contact</a></li>
-          <li><a href="profile.html">Profile</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="filler.html">Contact</a></li>
+              <li><a href="https://delhimetrorail.com/facilities">Facilities</a></li>
+              <li><a href="https://delhimetrorail.com/map">Maps</a></li>
+              <li><a href="https://delhimetrorail.com/faq">FAQs</a></li>
         </ul>
       </nav>
     </div>
-  </header>
+    <div class="view-container">
+            <div class="view-reports-title">
+        <p style="font-size: 50px; font-weight: bolder; font-family: 'League Spartan', sans-serif; color: #b51d1d; margin-top: 30px; margin-left: 5px;">Lost or Found Items</p>
+      </div>
 
-  <main class="container">
-    <section class="filters">
-      <h2>Filter Items</h2>
-      <label for="filterType">Type:</label>
+      <main class="view-item-box">
+
+      <section class="filters">
+      <h2 style = "font-family: 'League Spartan', sans-serif; font-size: 30px; text-align: center;">Filter Items</h2>
+      <label for="filterType" >Type:</label>
       <select id="filterType">
         <option value="lost">Lost</option>
         <option value="found">Found</option>
@@ -74,12 +81,7 @@
       <!-- Items will be rendered here -->
     </section>
   </main>
-
-  <footer id="footer">
-    <div class="footer-content">
-      <p>© 2023 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
-    </div>
-  </footer>
+  </div>
 
   <!-- Script -->
   <script>

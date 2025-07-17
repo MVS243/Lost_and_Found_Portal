@@ -7,11 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=League+Spartan" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Caveat:wght@400..700&family=League+Spartan:wght@100..900&family=Oi&family=Reenie+Beanie&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
 
   <!-- Custom Styles -->
   <link rel="stylesheet" href="style.css" />
@@ -20,15 +19,16 @@
 <body>
 
   <!-- ======= HEADER ======= -->
-  <header>
+
     <div class="navbar">
       <div class="navbar-left">
         <p>Follow us on : </p>
         <ul class="navbar-left-list1">
-          <li><a href="#"><img src="images/fb_icon.png" alt="FB" height="20"></a></li>
-          <li><a href="#"><img src="images/instagram_icon.png" alt="Insta" height="20"></a></li>
-          <li><a href="#"><img src="images/x_icon.png" alt="X" height="20"></a></li>
-          <li><a href="#"><img src="images/playstore_icon.png" alt="Play" height="20"></a></li>
+          <li><a href="https://www.facebook.com/officialdmrc/" target="_blank"><img src="images/fb_icon.png" alt="FB" height="20"></a></li>
+          <li><a href="https://www.instagram.com/officialdmrc/?hl=en" target="_blank"><img src="images/instagram_icon.png" alt="Insta" height="20"></a></li>
+          <li><a href="https://x.com/OfficialDMRC" target="_blank"><img src="images/x_icon.png" alt="X" height="20"></a></li>
+          <li><a href="https://apps.apple.com/in/app/delhi-metro-rail/id691105308" target="_blank"><img src="images/apple_logo.png" alt="Play" height="20"></a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.sraoss.dmrc" target="_blank"><img src="images/playstore_icon.png" alt="Play" height="20"></a></li>
         </ul>
       </div>
     </div>
@@ -46,42 +46,37 @@
           <span style="color: green; font-weight: bold;">155370</span>
         </div>
 
-        <div class="search-bar">
-          <input type="text" placeholder="Search...">
-          <i class="fa-solid fa-magnifying-glass"></i>
-        </div>
+        
 
         <nav class="secondary-navbar">
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#footer">Contact</a></li>
-            <li><a href="profile.html">Profile</a></li>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="filler.html">Contact</a></li>
+              <li><a href="https://delhimetrorail.com/facilities">Facilities</a></li>
+              <li><a href="https://delhimetrorail.com/map">Maps</a></li>
+              <li><a href="https://delhimetrorail.com/faq">FAQs</a></li>
           </ul>
         </nav>
       </div>
     </div>
-  </header>
+
     <main>
         <div class="dash-container">
             <div class="card">
-                <h2>Lost</h2>
-                <button onclick="reportLost()">REPORT A LOST ITEM</button>
-                <button onclick="viewLost()">VIEW LOST ITEMS</button>
+                <p><b>Lost</b></p>
+                <button onclick = "window.location.href='lost.html'">Report Lost Items</button>
+                <button onclick= "viewLost()">View Items</button>
             </div>
             <div class="card">
-                <h2>Found</h2>
-                <button onclick="reportFound()">REPORT A FOUND ITEM</button>
-                <button onclick="viewFound()">VIEW LOST ITEMS</button>
+                <p><b>Found</b></p>
+                <button onclick= "window.location.href='found.html'">Report Found Items</button>
+                <button onclick="viewFound()">View Items</button>
             </div>
         </div>
-        <!-- Add this iframe wrapper below -->
-  <div id="viewFrameContainer" style="margin-top: 20px; display: none;">
-    <iframe id="viewFrame" src="" width="100%" height="600px" style="border: none;"></iframe>
-  </div>
     </main>
     <footer>
       <div class="footer-content">
-        <p>© 2025 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
+        <p>© 2023 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
       </div>
   </footer>
 

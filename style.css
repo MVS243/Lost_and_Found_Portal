@@ -2,15 +2,26 @@
 /*       COMMON LAYOUT     */
 /* ======================= */
 
+.league-spartan {
+  font-family: "League Spartan", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: bolder;
+}
+.lato-light {
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
 body {
   font-family: 'Lato', sans-serif;
   margin: 0;
   padding: 0;
-  background-color: #f1f1f1;
+  background-color: rgb(255, 255, 255);
   overflow-x: hidden;
   box-sizing: border-box;
 }
-
 /*        FOOTER STYLES    */
 .footer-content {
   left: 0;
@@ -18,7 +29,7 @@ body {
   width: 100%;
   background-color: #ffffffe0;
   text-align: center;
-  position: fixed;
+  position: relative;
   font-size: 10px;
   color: #555;
 }
@@ -78,63 +89,111 @@ ul a:hover {
   color: #b51d1d;
   text-decoration: none;
 }
+.secondary-navbar li{
+  font-family: 'League Spartan', sans-serif;
+}
 
 
 /* ======================= */
 /*        HOME PAGE        */
 /* ======================= */
 
-/* Title */
-.home-headline{
-  font-size: 55px;
-  color: #c42020;
+/* === Reset/Global === */
+body {
+  margin: 0;
+  font-family: 'Helvetica Neue', sans-serif;
 }
 
-/* Main container */
-.container {
+h1 {
+  font-size: 2.8rem;
+  color: #000;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+}
+
+.main-container {
   display: flex;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-}
-
-/* Left column: Text */
-.left-column-home {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: flex-start;
+  padding: 2rem;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
-.left-column-home p {
-  font-size: 18px;
-  color: #222;
+/* === Left Section === */
+#rotating-text{
+  font-family:'League Spartan', sans-serif;
+  font-size: 80px;
 }
-
-/* Right column: Image */
-.right-image {
-  flex: 0.7;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.right-image img {
-  max-width: 100%;
-  margin-right: 5%;
-  max-height: 60%;
-}
-
-.left-column-home{
+.left-section {
+  flex: 1 1 400px;
   display: flex;
   flex-direction: column;
-  margin-left: 10px;  
+}
+
+.question-box {
+  margin-top: 40px;
+  background-color: #ffffff;
+}
+
+.button-group {
+  display: flex;
+  width:fit-content;
+}
+
+.btn {
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+.btn-red {
+  background-color: #be0000;
+  width: fit-content;
+}
+.btn-red:hover{
+  background-color: #e40000;
+}
+.about-link {
+  background-color: #d3d3d3;
+  padding: 1rem;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+/* === Right Section === */
+.right-section {
+  flex: 1 1 500px;
+  text-align: center;
+}
+
+.assist-text {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.image-frame {
+  border: 6px solid #b40000;
+  padding: 5px;
+}
+
+.image-frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+#slideshow-image {
+  transition: opacity 0.5s ease-in-out;
 }
 
 /*Start button AND login+register buttons*/
 .login-btn {
   margin-top: 10%;
-  background-color: #d42121;
+  background-color: #610000;
   color: #fff;
   border: none;
   border-radius: 5%;
@@ -152,170 +211,132 @@ ul a:hover {
 }
 
 
+
 /* ======================= */
 /*        LOGIN PAGE       */
 /* ======================= */
 
-/*login page*/
-.login-container {
-  background: #f61b1b;
-  padding: 40px 30px;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  text-align: center;
-  max-width: 350px;
-  width: 90%;
-  transition: transform 0.3s ease;
-}
-.login-container:hover {
-  transform: translateY(-5px);
-}
-.login-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: calc(100vh - 140px); /* Adjust depending on your header height */
-  background-color: #e5dfdf; /* Light background */
-  padding-top: 40px;
-}
-
-
-.login-container h2 {
-  font-size: 1.6rem;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.google-btn img {
-  width: 200px;
-  height: auto;
-  transition: transform 0.2s ease;
-}
-
-.google-btn:hover img {
-  transform: scale(1.05);
-  cursor:pointer;
-}
-
-.login-box {
-  padding: 2rem;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-}
-
-
-.login-box label {
-  display: block;
-  margin-top: 2%;
-  font-weight: bold;
-}
-
-.required {
-  color: red;
-}
-
-.login-box input {
-  width: 100%;
-  padding: 1%;
+/*. google sign in button. */
+.gsi-material-button {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  -webkit-appearance: none;
+  background-color: WHITE;
+  background-image: none;
+  border: 1px solid #747775;
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.login-box button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 5%;
-  width: 100%;
-  background-color: #d8bcbc;
-  color: #000;
-  border: none;
+  color: #1f1f1f;
   cursor: pointer;
-  font-size: 16px;
-}
-
-.form-links {
-  margin-top: 5%;
-  text-align: right;
-  font-size: 13px;
-  display: block;
-}
-.right-link{
-  padding-top: 1%;
-  display: block;
-  text-align: right;
-}
-
-.form-links a {
-  text-decoration: none;
-  color: #000;
-}
-
-/* Password Field with Eye */
-.password-wrapper {
+  font-family: 'Roboto', arial, sans-serif;
+  font-size: 14px;
+  height: 40px;
+  letter-spacing: 0.25px;
+  outline: none;
+  overflow: hidden;
+  padding: 0 12px;
   position: relative;
+  text-align: center;
+  -webkit-transition: background-color .218s, border-color .218s, box-shadow .218s;
+  transition: background-color .218s, border-color .218s, box-shadow .218s;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: auto;
+  max-width: 400px;
+  min-width: min-content;
 }
 
-.password-wrapper input {
-  width: 100%;
-  padding-right: 30px;
+.gsi-material-button .gsi-material-button-icon {
+  height: 20px;
+  margin-right: 12px;
+  min-width: 20px;
+  width: 20px;
 }
 
-/* ======================= */
-/*      REGISTER PAGE      */
-/* ======================= */
-.register-container {
-  display: flex;
-  justify-content: center;
-  padding: 1%;
-}
-
-.register-box {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 1%;
-  width: 50%;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  background-color: #fff;
-}
-
-.register-box label {
-  display: block;
-  margin-top: 1%;
-  font-weight: bold;
-}
-
-.required {
-  color: red;
-}
-
-.register-box input {
-  width: 100%;
-  padding: 1%;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
+.gsi-material-button .gsi-material-button-content-wrapper {
+  -webkit-align-items: center;
   align-items: center;
-}
-
-.register-box button {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2%;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  -webkit-flex-wrap: nowrap;
+  flex-wrap: nowrap;
+  height: 100%;
+  justify-content: space-between;
+  position: relative;
   width: 100%;
-  background-color: #d8bcbc;
-  color: #000;
-  border: none;
-  cursor: pointer;
-  font-size: 12px;
 }
 
+.gsi-material-button .gsi-material-button-contents {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+  font-family: 'Roboto', arial, sans-serif;
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  vertical-align: top;
+}
 
+.gsi-material-button .gsi-material-button-state {
+  -webkit-transition: opacity .218s;
+  transition: opacity .218s;
+  bottom: 0;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
 
+.gsi-material-button:disabled {
+  cursor: default;
+  background-color: #ffffff61;
+  border-color: #1f1f1f1f;
+}
+
+.gsi-material-button:disabled .gsi-material-button-contents {
+  opacity: 38%;
+}
+
+.gsi-material-button:disabled .gsi-material-button-icon {
+  opacity: 38%;
+}
+
+.gsi-material-button:not(:disabled):active .gsi-material-button-state, 
+.gsi-material-button:not(:disabled):focus .gsi-material-button-state {
+  background-color: #303030;
+  opacity: 12%;
+}
+
+.gsi-material-button:not(:disabled):hover {
+  -webkit-box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .30), 0 1px 3px 1px rgba(60, 64, 67, .15);
+}
+
+.gsi-material-button:not(:disabled):hover .gsi-material-button-state {
+  background-color: #303030;
+  opacity: 8%;
+}
+.login-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  background-color: rgb(251, 251, 178);
+  border: 1px solid black;
+  border-radius: 20px;
+  height: fit-content;
+  width: fit-content;
+  margin: 10% auto 0;
+}
+.login-title p{
+  font-family: 'League Spartan', sans-serif;
+  font-weight: medium;
+  font-size: 40px;
+}
 /* ======================= */
 /*       LAYOUT WRAPPER    */
 /* ======================= */
@@ -661,39 +682,26 @@ textarea::placeholder {
 /* ======================= */
 /*     RESPONSIVE RULES    */
 /* ======================= */
-@media (max-width: 800px) {
-  .sidebar,
-  .secondary-navbar {
-    display: none;
-  }
-
-  .form-section {
-    width: 100% !important;
-    margin: 0 auto !important;
-    padding: 0 10px !important;
-    box-sizing: border-box;
-  }
-
+@media (max-width:800px){
   .container {
-    display: block;
+    flex-direction: column;
+    align-items: center;
   }
 
-  .container-form,
-  .container {
-    max-width: 100% !important;
-    width: 100% !important;
-    padding: 0 10px !important;
-    margin: 0 !important;
-    box-sizing: border-box;
-  }
-
-  html, body {
-    margin: 0;
-    padding: 0;
+  .left-column-home,
+  .index-rightside {
     width: 100%;
+    text-align: center;
   }
-}
 
+  .right-image img {
+    max-width: 90%;
+  }
+  .secondary-navbar{
+    display:none;
+  }
+
+}
 /* ======================= */
 /*    SOCIAL ICON COLORS   */
 /* ======================= */
@@ -897,20 +905,27 @@ header {
     gap: 30px;
     padding: 50px 20px;
 }
-
+.card:hover{
+  box-shadow: 0 10px 10px rgba(255, 255, 255, 0);
+}
 .card {
-    background: #ffffff;
-    padding: 30px;
+    background-color: #ffffff;
+    border: 2px solid #be0000;
+    padding: 40px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 10px rgb(0, 0, 0);
     text-align: center;
     width: 250px;
 }
-
-.card h2 {
-    color: #d32f2f;
-    font-size: 32px;
-    margin-bottom: 20px;
+.card p {
+  text-align: center;
+  font-size: 70px;
+  font-weight: bolder;
+  font-family: 'League Spartan', sans-serif;
+  color: #be0000;
+  margin: 5%;
+  letter-spacing: 0.7px;
+  text-shadow: 0 2px 4px #000;
 }
 
 .card button {
@@ -918,19 +933,20 @@ header {
     width: 100%;
     padding: 12px;
     margin: 10px 0;
-    background: #d32f2f;
+    background: #a40000;
     color: #ffffff;
-    border: none;
-    border-radius: 4px;
+    border: 1px solid white;
+    border-radius: 10px;
     cursor: pointer;
     font-size: 16px;
+    font-family: 'Lato', sans-serif;
+    box-shadow: 0 3px 4px rgb(0, 0, 0);
 }
 
 .card button:hover {
-    background: #b71c1c;
+    background:  #ff0000;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0);
 }
-
-
 /* ======================= */
 /*       PROFILE PAGE      */
 /* ======================= */
@@ -938,15 +954,10 @@ header {
 /* User Details */
 .user-details {
   flex: 1;
-  background-color: #fafafa;
+  background-color: #ffffda;
   border-radius: 10px;
   padding: 2%;
   box-shadow: 0 0 10px #eee;
-}
-
-.user-details h3 {
-  color: #c7a7f3;
-  margin-bottom: 2%;
 }
 
 .user-details form {
@@ -956,11 +967,371 @@ header {
 
 .user-details label {
   margin-top: 2%;
+  font-family: 'Lato', sans-serif;
+  font-weight:bold;
 }
 
 .user-details input {
   padding: 1%;
   border-radius: 5px;
+  font-family: 'Lato', sans-serif;
   border: 1px solid #ccc;
   background-color: #f6f9fb;
+}
+
+/*======================================*/
+/*           LOST and Found             */
+/*======================================*/
+/* layout */
+.lostfound-container {
+  display: flex;
+  padding: 20px;
+}
+
+.lostfound-container-form {
+  background-color: #d6f0fc;
+  width: 100%;
+  padding: 20px;
+  border-radius: 20px;
+  margin-left: 10%;;
+}
+
+/* action stles */
+.lostfound-left-column {
+  display: flex;
+  flex-direction: column;
+  width: 25%;
+  margin-right: 10px; /* unified value */
+}
+
+.lostfound-sidebar {
+  width: 100%;
+  height: 100%;
+  background: rgb(255, 253, 253);
+  border: 1px solid #d1d1d1;
+  border-radius: 8px;
+  box-shadow: none;
+  padding: 0 0 10px 0;
+  margin-bottom: 20px;
+  margin-top: 0; /* unified with .sidebar */
+  box-shadow: 5px 5px 5px gray;
+  box-sizing: border-box;
+  word-wrap: break-word;
+}
+
+.lostfound-sidebar h2 {
+  background:#ffffff;
+  color: rgb(0, 0, 0);
+  margin: 0;
+  padding: 12px 16px;
+  font-size: 18px;
+  border-bottom: 1px solid #d1d1d1;
+  border-radius: 8px 8px 0 0;
+}
+
+.lostfound-sidebar-links {
+  margin: 0;
+  padding: 0;
+}
+
+.lostfound-sidebar-links a{
+  text-decoration: none;
+  color: rgb(0, 0, 0);
+}
+.lostfound-sidebar-links li a:hover{
+  color: #7b0000;
+}
+
+.lostfound-sidebar-links li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  padding: 10px 0 10px 12px;
+  text-decoration: none;
+}
+
+.lostfound-sidebar-links i {
+  color: #000000;
+  font-size: 18px;
+}
+/*        FORM STYLES      */
+.lostfound-container-form{
+  width:100%;
+  max-width : 100%;
+}
+.lostfound-form-section {
+  flex: 1;
+  width: 100%;
+  max-width: 100%;
+  padding:1rem;
+  box-sizing: border-box;
+}
+#foundForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+input,
+select,
+textarea {
+  background: #fafbfc;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  color: #222;
+  font-size: 15px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #bdbdbd;
+  font-size: 15px;
+}
+
+.invalid {
+  border: 2px solid red;
+}
+
+.error {
+  color: red;
+  font-size: 13px;
+  margin-top: -10px;
+  margin-bottom: 10px;
+  display: none;
+  padding-left: 2px;
+  transition: all 0.2s ease-in-out;
+  
+}
+/* buttons */
+.lostfound-button-group {
+  display: flex;
+  gap: 12px;
+  margin: 0 auto;
+
+}
+
+.lostfound-button-group button[type="submit"] {
+  background: #1976d2;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 10px 28px;
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+  transition: background 0.2s, box-shadow 0.2s;
+}
+
+.lostfound-button-group button[type="submit"]:hover {
+  background: #1251a3;
+  box-shadow: 0 4px 16px rgba(25, 118, 210, 0.12);
+}
+
+.lostfound-button-group button[type="reset"] {
+  background: #fff;
+  color: #1976d2;
+  border: 1px solid #1976d2;
+  border-radius: 6px;
+  padding: 10px 22px;
+  font-size: 16px;
+  font-family: 'Lato', sans-serif;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+/* title and text */
+.lostfound-logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  color: rgb(123, 0, 0);
+  padding: 10px;
+  font-family: 'League Spartan', sans-serif;
+  font-weight: 200;
+}
+
+.lostfound-form-section p {
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: left;
+  font-family: 'Lato', sans-serif;
+  color: #350c0c;
+}
+
+.lostfound-main-title-left {
+  width: 200px;
+  margin-left: 0;
+  margin-bottom: 0; /* unified */
+  align-items: flex-start;
+  padding-bottom: 10px;
+}
+
+.lostfound-main-title-left p {
+  text-shadow: 0 2px 4px #000;
+  text-align: center;
+  font-size: 70px;
+  font-weight: bolder;
+  font-family: 'League Spartan', sans-serif;
+  color: #be0000;
+  margin: 5%;
+  letter-spacing: 0.7px;
+}
+/*     RESPONSIVE RULES    */
+
+@media (max-width:100%) {
+  .lostfound-main-right img{
+    display: none;
+  }
+}
+@media (max-width: 800px) {
+  .lostfound-sidebar,
+  .lostfound-secondary-navbar {
+    display: none;
+  }
+
+  .lostfound-form-section {
+    width: 100% !important;
+    margin: 0 auto !important;
+    padding: 0 10px !important;
+    box-sizing: border-box;
+  }
+  .lostfound-container-form,
+  .lostfound-container {
+    max-width: 100% !important;
+    width: 100% !important;
+    padding: 0 10px !important;
+    margin: 0 !important;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  .lostfound-main-area{
+    width: 95% !important;
+  }
+  .lostfound-left-column{
+    display: none;
+  }
+}
+
+/* Centre of the page */
+.lostfound-main-area{
+  width: 50%;
+}
+
+/* FILE UPLOAD AREA */
+.lostfound-file-upload-section label {
+  font-weight: 600;
+  font-size: 15px;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.lostfound-file-upload-area {
+  border: 2px dashed #e0e0e0;
+  border-radius: 8px;
+  background: #fcfcfc;
+  min-height: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #bdbdbd;
+  font-size: 18px;
+  margin-bottom: 4px;
+  cursor: pointer;
+}
+
+.lostfound-file-upload-area i {
+  font-size: 15px;
+  padding:5px;
+  margin-top: 4px;
+}
+
+.lostfound-file-upload-info {
+  font-size: 10px;
+  color: #bdbdbd;
+  margin-bottom: 0px;
+}
+/* MENU BAR */
+.lostfound-floating-toggle{
+  display: none;
+  position: absolute;
+  top: 150px;
+  right:0;
+  transform: translateX(-50%);
+  padding: 8px 14px;
+  border-radius: 9px;
+  cursor: pointer;
+  z-index: 999;
+  
+  padding: 6px;
+  width: fit-content;
+}
+.lostfound-floating-toggle img{
+  height:35px;
+}
+.lostfound-mobile-options-panel {
+  display: none;
+  position: absolute;
+  top:125px;
+  margin-left: 75%;
+  transform: translateX(-50%);
+  background: rgb(255, 255, 255);
+  padding: 5px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  z-index: 999;
+  font-family: 'Lato', sans-serif;
+}
+.lostfound-mobile-options-panel a{
+  text-decoration: none;
+  color: black;
+}
+.lostfound-mobile-options-panel a:hover{
+  color: rgb(114, 114, 114);
+}
+@media (max-width: 800px) {
+  .lostfound-floating-toggle{
+    display:block;
+  }
+  .lostfound-mobile-options-panel {
+    width: 19%;
+  }
+}
+/*======================================*/
+/*           View Reports Page          */
+/*======================================*/
+
+.view-container{
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.view-item-box{
+  background-color: rgb(225, 252, 192);
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 10px;
+  width: fit-content;
+}
+
+/*======================================*/
+/*           Mobile-Responsiveness      */
+/*======================================*/
+
+@media (max-width:420px){
+  .dash-container{
+    flex-direction: column;
+  }
 }
