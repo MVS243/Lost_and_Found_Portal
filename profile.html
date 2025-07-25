@@ -60,7 +60,7 @@
   </div>
 
   <!-- ======= CONTENT ======= -->
-   <main class="lostfound-container">
+  <main class="lostfound-container">
     <div class="lostfound-left-column">
       <div class="lostfound-main-title-left">
         <p style="font-family: 'League Spartan', sans-serif; color: #b51d1d; text-align: center;">User Profile</p>
@@ -70,7 +70,7 @@
         <ul class="lostfound-sidebar-links">
           <li><i class="fa-regular fa-star"></i> <a href="lost.html">Report Lost Item</a></li>
           <li><i class="fa-regular fa-star"></i> <a href="found.html">Report Found Item</a></li>
-          <li><i class="fa-regular fa-star"></i> <a href="view.html">View Reports/ Search Item</a></li> 
+          <li><i class="fa-regular fa-star"></i> <a href="view.html">View Reports / Search Item</a></li> 
         </ul>
       </aside>
     </div>
@@ -82,7 +82,7 @@
 
       <div class="lostfound-mobile-options-panel" id="lostfound-optionsPanel">
         <a href="lost.html">Report</a><br>
-        <a href="filler.html">View Reports</a><br>
+        <a href="view.html">View Reports</a><br>
         <a href="profile.html">Profile</a><br>
       </div>
 
@@ -120,7 +120,7 @@
       panel.style.display = panel.style.display === "block" ? "none" : "block";
     }
 
-    // Load user profile
+    // Auto-load user profile data
     window.onload = async function () {
       try {
         const res = await fetch("/api/user");
@@ -135,11 +135,11 @@
         form.address.value = user.address || "";
       } catch (err) {
         alert("Please log in to view your profile.");
-        window.location.href = "/index.html";
+        window.location.href = "/login.html";
       }
     };
 
-    // Update user profile
+    // Handle profile update
     document.getElementById("profileForm").addEventListener("submit", async function (e) {
       e.preventDefault();
       const formData = {

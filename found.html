@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
-  <title>DMRC_Lost&Found_ReportFoundItems</title>
+  <title>Report Found Item | DMRC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Caveat:wght@400..700&family=League+Spartan:wght@100..900&family=Oi&family=Reenie+Beanie&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;700&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -18,165 +15,127 @@
   <!-- Custom Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
 
-  <!-- ======= HEADER ======= -->
+  <!-- ======= TOP SOCIAL BAR ======= -->
   <div class="navbar">
     <div class="navbar-left">
       <p>Follow us on : </p>
       <ul class="navbar-left-list1">
-        <li><a href="https://www.facebook.com/officialdmrc/" target="_blank"><img src="images/fb_icon.png" alt="FB" height="20"></a></li>
-        <li><a href="https://www.instagram.com/officialdmrc/?hl=en" target="_blank"><img src="images/instagram_icon.png" alt="Insta" height="20"></a></li>
-        <li><a href="https://x.com/OfficialDMRC" target="_blank"><img src="images/x_icon.png" alt="X" height="20"></a></li>
-        <li><a href="https://apps.apple.com/in/app/delhi-metro-rail/id691105308" target="_blank"><img src="images/apple_logo.png" alt="Apple" height="20"></a></li>
-        <li><a href="https://play.google.com/store/apps/details?id=com.sraoss.dmrc" target="_blank"><img src="images/playstore_icon.png" alt="Playstore" height="20"></a></li>
+        <li><a href="#"><img src="images/fb_icon.png" height="20" alt="FB"></a></li>
+        <li><a href="#"><img src="images/instagram_icon.png" height="20" alt="IG"></a></li>
+        <li><a href="#"><img src="images/x_icon.png" height="20" alt="X"></a></li>
       </ul>
     </div>
   </div>
 
+  <!-- ======= MAIN HEADER ======= -->
   <div class="header-main">
     <div class="header-left">
       <img src="images/dmrc_logo.png" alt="DMRC Logo" />
     </div>
-
     <div class="header-right">
       <div class="helpline">
         <img src="images/helpline.svg" alt="Helpline" height="15">
         Helpline <br>
         <span style="color: green; font-weight: bold;">155370</span>
       </div>
-
       <nav class="secondary-navbar">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="https://delhimetrorail.com/contact-us">Contact</a></li>
-          <li><a href="https://delhimetrorail.com/facilities">Facilities</a></li>
-          <li><a href="https://delhimetrorail.com/map">Maps</a></li>
-          <li><a href="https://delhimetrorail.com/faq">FAQs</a></li>
-          <li><a href="profile.html">Profile</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Facilities</a></li>
+          <li><a href="#">Maps</a></li>
+          <li><a href="#">FAQs</a></li>
         </ul>
       </nav>
     </div>
   </div>
-  <!-- MAIN CONTENT -->
+
+  <!-- ======= MAIN CONTENT ======= -->
   <main class="lostfound-container">
     <div class="lostfound-left-column">
       <div class="lostfound-main-title-left">
-        <p style="font-family: 'League Spartan', sans-serif; color: #b51d1d; text-align: center;">Found</p>
+        <p style="font-family: 'League Spartan', sans-serif; color: #b51d1d; text-align: center;">Report Found Item</p>
       </div>
       <aside class="lostfound-sidebar">
         <h2>Actions</h2>
         <ul class="lostfound-sidebar-links">
-          <li><i class="fa-regular fa-star"></i> <a href="lost.html">Report Lost Item</a></li>
-          <li><i class="fa-regular fa-star"></i> <a href="view.html">View Reports/ Search Item</a></li>
+          <li><a href="lost.html"><i class="fa-solid fa-circle-plus"></i> Report Lost Item</a></li>
+          <li><a href="found.html"><i class="fa-solid fa-circle-plus"></i> Report Found Item</a></li>
+          <li><a href="view.html"><i class="fa-solid fa-magnifying-glass"></i> View Reports</a></li>
         </ul>
       </aside>
     </div>
 
     <div class="lostfound-main-area">
-      <div class="lostfound-floating-toggle" onclick="toggleOptions()">
-        <img src="images/burger-bar.png">
-      </div>
+      <div class="user-details">
+        <form id="foundForm" enctype="multipart/form-data">
+          <label for="item">Item Name:</label>
+          <input type="text" id="item" name="item" required>
 
-      <div class="lostfound-mobile-options-panel" id="lostfound-optionsPanel">
-        <a href="lost.html">Report</a><br>
-        <a href="filler.html">View Reports</a><br>
-        <a href="profile.html">Profile</a><br>
-      </div>
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" rows="3" required></textarea>
 
-      <!-- FORM SECTION -->
-      <div class="lostfound-container-form">
-        <section class="lostfound-form-section">
-          <form id="foundForm" enctype="multipart/form-data" method="POST">
-            <label>Item Name <span style="color: red;">*</span></label>
-            <input type="text" name="itemName" required placeholder="Text" />
+          <label for="date">Date Found:</label>
+          <input type="date" id="date" name="date" required>
 
-            <label>Date & Time of Found Item <span style="color: red;">*</span></label>
-            <input type="datetime-local" name="foundDate" required />
+          <label for="line">Metro Line:</label>
+          <select id="line" name="line" onchange="updateStations()" required>
+            <option value="">Select a line</option>
+            <option value="Blue Line">Blue Line</option>
+            <option value="Red Line">Red Line</option>
+            <option value="Yellow Line">Yellow Line</option>
+          </select>
 
-            <label for="line">Choose a line <span style="color: red;">*</span></label>
-            <select id="line" name="line" onchange="updateStations()">
-              <option value="" disabled selected>Select a Line</option>
-              <option value="blue">Blue Line</option>
-              <option value="red">Red Line</option>
-              <option value="yellow">Yellow Line</option>
-              <option value="pink">Pink Line</option>
-              <option value="violet">Violet Line</option>
-              <option value="magenta">Magenta Line</option>
-              <option value="green">Green Line</option>
-              <option value="grey">Grey Line</option>
-              <option value="airport">Airport Express Line</option>
-              <option value="rmgl">Rapid Metro Gurgaon</option>
-            </select>
-            <span class="error" id="lineError"></span>
+          <label for="station">Station:</label>
+          <select id="station" name="station" required>
+            <option value="">Select a station</option>
+          </select>
 
-            <label for="station">Choose a Station: <span style="color: red;">*</span></label>
-            <select id="station" name="station">
-              <option value="" disabled selected>Select a Station</option>
-            </select>
-            <span class="error" id="stationError"></span>
+          <label for="image">Upload Image (optional):</label>
+          <input type="file" id="image" name="image" accept="image/*">
 
-            <label>Remarks (optional)</label>
-            <textarea name="remarks" placeholder="Any extra details about the location or the item."></textarea>
-
-            <div class="lostfound-file-upload-section">
-              <label for="fileInput">File Upload (jpg, jpeg, png)</label>
-              <input type="file" id="fileInput" name="image" accept=".jpg,.jpeg,.png" required />
-            </div>
-
-            <div class="lostfound-button-group">
-              <button type="reset">Cancel</button>
-              <button type="submit">Continue</button>
-            </div>
-          </form>
-        </section>
+          <center><button class="btn-white" type="submit">Submit Report</button></center>
+        </form>
       </div>
     </div>
   </main>
 
-  <footer>
+  <!-- ======= FOOTER ======= -->
+  <footer id="footer">
     <div class="footer-content">
       <p>© 2025 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
     </div>
   </footer>
 
+  <!-- ======= JS FUNCTIONALITY ======= -->
   <script>
     const stationsByLine = {
-      blue: ["Dwarka Sector - 21", "Dwarka Sector - 8", "Dwarka Sector - 9", "Dwarka Sector - 10", "Dwarka Sector - 11", "Dwarka Sector - 12", "Dwarka Sector - 13", "Dwarka Sector - 14", "Dwarka", "Dwarka Mor", "Nawada", "Uttam Nagar West", "Uttam Nagar East", "Janakpuri West", "Janakpuri East", "Tilak Nagar", "Subhash Nagar", "Tagore Garden", "Rajouri Garden", "Ramesh Nagar", "Moti Nagar", "Kirti Nagar", "Shadipur", "Patel Nagar", "Rajendra Place", "Karol Bagh", "Jhandewalan", "Ramakrishna Ashram Marg", "Rajiv Chowk", "Barakhamba Road", "Mandi House", "Supreme Court", "Indraprastha", "Yamuna Bank", "Akshardham", "Mayur Vihar - I", "Mayur Vihar Extension", "New Ashok Nagar", "Noida Sector - 15", "Noida Sector - 16", "Noida Sector - 18", "Botanical Garden", "Golf Course", "Noida City Centre", "Sector - 34 Noida", "Sector - 52 Noida", "Sector - 61 Noida", "Sector - 59 Noida", "Sector - 62 Noida", "Noida Electronic City", "Laxmi Nagar", "Nirman Vihar", "Preet Vihar", "Karkarduma", "Anand Vihar ISBT", "Kaushambi", "Vaishali"],
-      red: ["Shaheed Sthal (New Bus Adda)", "Hindon River", "Arthala", "Mohan Nagar", "Shyam Park", "Major Mohit Sharma Rajendra Nagar", "Raj Bagh", "Shaheed Nagar", "Dilshad Garden", "Jhilmil", "Mansarovar Park", "Shahdara", "Welcome", "Seelampur", "Shastri Park", "Kashmere Gate", "Tis Hazari", "Pulbangash", "Pratap Nagar", "Shastri Nagar", "Inderlok", "Kanhaiya Nagar", "Keshav Puram", "Netaji Subhash Place", "Kohat Enclave", "Pitampura", "Rohini East", "Rohini West", "Rithala"],
-      yellow: ["Samaypur Badli", "Rohini Sector - 18, 19", "Haiderpur Badli Mor", "Jahangirpuri", "Adarsh Nagar", "Azadpur", "Model Town", "Guru Teg Bahadur Nagar", "Vishwavidyalaya", "Vidhan Sabha", "Civil Lines", "Kashmere Gate", "Chandni Chowk", "Chawri Bazar", "New Delhi (Yellow & Airport Line)", "Rajiv Chowk", "Patel Chowk", "Central Secretariat", "Udyog Bhawan", "Lok Kalyan Marg", "Jor Bagh", "Dilli Haat - INA", "AIIMS", "Green Park", "Hauz Khas", "Malviya Nagar", "Saket", "Qutab Minar", "Chhatarpur", "Sultanpur", "Ghitorni", "Arjan Garh", "Guru Dronacharya", "Sikanderpur", "M.G. Road", "IFFCO Chowk", "Millennium City Centre Gurugram"],
-      green: ["Kirti Nagar", "Satguru Ram Singh Marg", "Inderlok", "Ashok Park Main", "Punjabi Bagh", "Punjabi Bagh West", "Shivaji Park", "Madipur", "Paschim Vihar East", "Paschim Vihar West", "Peeragarhi", "Udyog Nagar", "Maharaja Surajmal Stadium", "Nangloi", "Nangloi Railway Station", "Rajdhani Park", "Mundka", "Mundka Industrial Area (MIA)", "Ghevra Metro Station", "Tikri Kalan", "Tikri Border", "Pandit Shree Ram Sharma", "Bahadurgarh City", "Brig. Hoshiar Singh"],
-      violet: ["Kashmere Gate", "Lal Quila", "Jama Masjid", "Delhi Gate", "ITO", "Mandi House", "Janpath", "Central Secretariat", "Khan Market", "JLN Stadium", "Jangpura", "Lajpat Nagar", "Moolchand", "Kailash Colony", "Nehru Place", "Kalkaji Mandir", "Govind Puri", "Harkesh Nagar Okhla", "Jasola-Apollo", "Sarita Vihar", "Mohan Estate", "Tughlakabad Station", "Badarpur Border", "Sarai", "NHPC Chowk", "Mewala Maharajpur", "Sector-28", "Badkal Mor", "Old Faridabad", "Neelam Chowk Ajronda", "Bata Chowk", "Escorts Mujesar", "Sant Surdas (Sihi)", "Raja Nahar Singh (Ballabhgarh)"],
-      pink: ["Majlis Park", "Azadpur", "Shalimar Bagh", "Netaji Subhash Place", "Shakurpur", "Punjabi Bagh West", "ESI-Basaidarapur", "Rajouri Garden", "Mayapuri", "Naraina Vihar", "Delhi Cantt.", "Durgabai Deshmukh South Campus", "Sir M. Vishweshwaraiah Moti Bagh", "Bhikaji Cama Place", "Sarojini Nagar", "Dilli Haat - INA", "South Extension", "Lajpat Nagar", "Vinobapuri", "Ashram", "Sarai Kale Khan - Nizamuddin", "Mayur Vihar - I", "Mayur Vihar Pocket-1", "Trilokpuri-Sanjay Lake", "East Vinod Nagar-Mayur Vihar - II", "Mandawali - West Vinod Nagar", "I.P. Extension", "Anand Vihar ISBT", "Karkarduma", "Karkarduma Court", "Krishna Nagar", "East Azad Nagar", "Welcome", "Jafrabad", "Maujpur-Babarpur", "Gokulpuri", "Johri Enclave", "Shiv Vihar"],
-      magenta: ["Krishna Park Extension", "Janakpuri West", "Dabri Mor - Janakpuri South", "Dashrathpuri", "Palam", "Sadar Bazar Cantonment", "Terminal 1-IGI Airport", "Shankar Vihar", "Vasant Vihar", "Munirka", "R.K.Puram", "IIT", "Hauz Khas", "Panchsheel Park", "Chirag Delhi", "Greater Kailash", "Nehru Enclave", "Kalkaji Mandir", "Okhla NSIC", "Sukhdev Vihar", "Jamia Millia Islamia", "Okhla Vihar", "Jasola Vihar Shaheen Bagh", "Kalindi Kunj", "Okhla Bird Sanctuary", "Botanical Garden"],
-      grey: ["Dwarka", "Nangli", "Najafgarh", "Dhansa Bus Stand"],
-      airport: ["New Delhi (Yellow & Airport Line)", "Shivaji Stadium", "Dhaula Kuan", "Delhi Aerocity", "Airport (T-3)", "Dwarka Sector - 21", "Yashobhoomi Dwarka Sector - 25"],
-      rmgl: ["Sector 55-56", "Sector-54 Chowk", "Sector-53-54", "Sector-42-43", "Phase-1", "Sikanderpur", "Phase-2", "Belvedere Towers", "Cyber City", "Moulsari Avenue", "Phase-3"]
-
+      "Blue Line": ["Dwarka Sector 21", "Rajiv Chowk", "Noida City Centre"],
+      "Red Line": ["Rithala", "Kashmere Gate", "Shahdara"],
+      "Yellow Line": ["Samaypur Badli", "Rajiv Chowk", "Huda City Centre"]
     };
 
     function updateStations() {
       const line = document.getElementById("line").value;
       const stationSelect = document.getElementById("station");
-      stationSelect.innerHTML = '<option value="" disabled selected>Select a Station</option>';
-      (stationsByLine[line] || []).forEach((station) => {
-        const opt = document.createElement("option");
-        opt.value = station;
-        opt.textContent = station;
-        stationSelect.appendChild(opt);
-      });
-    }
+      stationSelect.innerHTML = '<option value="">Select a station</option>';
 
-    function toggleOptions() {
-      const panel = document.getElementById("lostfound-optionsPanel");
-      panel.classList.toggle("show");
+      if (stationsByLine[line]) {
+        stationsByLine[line].forEach(station => {
+          const option = document.createElement("option");
+          option.value = station;
+          option.text = station;
+          stationSelect.appendChild(option);
+        });
+      }
     }
 
     document.getElementById("foundForm").addEventListener("submit", async function (e) {
       e.preventDefault();
-      const form = e.target;
-      const formData = new FormData(form);
+
+      const formData = new FormData(this);
 
       try {
         const res = await fetch("/api/found", {
@@ -185,15 +144,14 @@
         });
 
         if (res.ok) {
-          alert("Found item submitted successfully!");
-          form.reset();
+          alert("Found item reported successfully.");
+          this.reset();
         } else {
-          const err = await res.text();
-          alert("Submission failed: " + err);
+          alert("Failed to report item.");
         }
       } catch (err) {
-        console.error("Error submitting form:", err);
-        alert("Submission failed.");
+        console.error(err);
+        alert("An error occurred.");
       }
     });
   </script>
