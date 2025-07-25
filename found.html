@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
-  <title>Delhi Metro Lost and Found</title>
+  <title>DMRC_Lost&Found_ReportFoundItems</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
@@ -19,7 +20,8 @@
 </head>
 
 <body>
-  <!-- HEADER -->
+
+  <!-- ======= HEADER ======= -->
   <div class="navbar">
     <div class="navbar-left">
       <p>Follow us on : </p>
@@ -52,30 +54,27 @@
           <li><a href="https://delhimetrorail.com/facilities">Facilities</a></li>
           <li><a href="https://delhimetrorail.com/map">Maps</a></li>
           <li><a href="https://delhimetrorail.com/faq">FAQs</a></li>
+          <li><a href="profile.html">Profile</a></li>
         </ul>
       </nav>
     </div>
   </div>
-
   <!-- MAIN CONTENT -->
   <main class="lostfound-container">
     <div class="lostfound-left-column">
+      <div class="lostfound-main-title-left">
+        <p style="font-family: 'League Spartan', sans-serif; color: #b51d1d; text-align: center;">Found</p>
+      </div>
       <aside class="lostfound-sidebar">
         <h2>Actions</h2>
         <ul class="lostfound-sidebar-links">
-          <li><i class="fa-regular fa-star"></i> <a href="lost.html">Report Lost item</a></li>
-          <li><i class="fa-regular fa-star"></i> <a href="filler.html">View Reports/ Search Item</a></li>
-          <hr style="width: 90%; opacity: 70%;">
-          <li><i class="fa-regular fa-star"></i> <a href="profile.html">Profile</a></li>
+          <li><i class="fa-regular fa-star"></i> <a href="lost.html">Report Lost Item</a></li>
+          <li><i class="fa-regular fa-star"></i> <a href="view.html">View Reports/ Search Item</a></li>
         </ul>
       </aside>
     </div>
 
     <div class="lostfound-main-area">
-      <div class="lostfound-main-title-left">
-        <p style="font-family: 'League Spartan', sans-serif; color: #b51d1d; text-align: center;">Found</p>
-      </div>
-
       <div class="lostfound-floating-toggle" onclick="toggleOptions()">
         <img src="images/burger-bar.png">
       </div>
@@ -200,62 +199,3 @@
   </script>
 </body>
 </html>
-<style>
-  body {
-    font-family: 'Lato', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-  }
-
-  .navbar {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-  }
-
-  .navbar-left {
-    display: flex;
-    align-items: center;
-  }
-
-  .navbar-left p {
-    margin-right: 20px;
-  }
-
-  .navbar-left-list1 {
-    list-style-type: none;
-    display: flex;
-    gap: 10px;
-  }
-
-  .navbar-left-list1 li a img {
-    vertical-align: middle;
-  }
-
-  .header-main {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #fff;
-  }
-
-  .header-left img {
-    height: 50px;
-  }
-
-  .header-right {
-    text-align: right;
-  }
-
-  .helpline {
-    font-size: small;
-    color: #555;
-  }
-
-  .secondary-navbar ul {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 10px;
-  }

@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8" />
-  <title>Delhi Metro Lost and Found</title>
+  <title>DMRC_Lost&Found_ReportLostItems</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
@@ -47,11 +47,6 @@
         <span style="color: green; font-weight: bold;">155370</span>
       </div>
 
-      <div class="search-bar">
-        <input type="text" placeholder="Search...">
-        <i class="fa-solid fa-magnifying-glass"></i>
-      </div>
-
       <nav class="secondary-navbar">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -59,6 +54,7 @@
           <li><a href="https://delhimetrorail.com/facilities">Facilities</a></li>
           <li><a href="https://delhimetrorail.com/map">Maps</a></li>
           <li><a href="https://delhimetrorail.com/faq">FAQs</a></li>
+          <li><a href="profile.html">Profile</a></li>
         </ul>
       </nav>
     </div>
@@ -67,22 +63,19 @@
   <!-- ======= MAIN CONTENT ======= -->
   <main class="lostfound-container">
     <div class="lostfound-left-column">
+      <div class="lostfound-main-title-left">
+        <p style="font-family: 'League Spartan', sans-serif; color: #b51d1d; text-align: center;">Lost</p>
+      </div>
       <aside class="lostfound-sidebar">
         <h2>Actions</h2>
         <ul class="lostfound-sidebar-links">
-          <li><i class="fa-regular fa-star"></i> <a href="lost.html">Report Lost item</a></li>
+          <li><i class="fa-regular fa-star"></i> <a href="found.html">Report Found Item</a></li>
           <li><i class="fa-regular fa-star"></i> <a href="view.html">View Reports / Search Item</a></li>
-          <hr style="width: 90%; opacity: 70%;">
-          <li><i class="fa-regular fa-star"></i> <a href="profile.html">Profile</a></li>
         </ul>
       </aside>
     </div>
 
     <div class="lostfound-main-area">
-      <div class="lostfound-main-title-left">
-        <p style="font-family: 'League Spartan', sans-serif; color: #b51d1d; text-align: center;">Lost</p>
-      </div>
-
       <div class="lostfound-floating-toggle" onclick="toggleOptions()">
         <img src="images/burger-bar.png">
       </div>
@@ -162,7 +155,7 @@ const stationsByLine = {
   magenta: ["Krishna Park Extension", "Janakpuri West", "Dabri Mor - Janakpuri South", "Dashrathpuri", "Palam", "Sadar Bazar Cantonment", "Terminal 1-IGI Airport", "Shankar Vihar", "Vasant Vihar", "Munirka", "R.K.Puram", "IIT", "Hauz Khas", "Panchsheel Park", "Chirag Delhi", "Greater Kailash", "Nehru Enclave", "Kalkaji Mandir", "Okhla NSIC", "Sukhdev Vihar", "Jamia Millia Islamia", "Okhla Vihar", "Jasola Vihar Shaheen Bagh", "Kalindi Kunj", "Okhla Bird Sanctuary", "Botanical Garden"],
   grey: ["Dwarka", "Nangli", "Najafgarh", "Dhansa Bus Stand"],
   airport: ["New Delhi (Yellow & Airport Line)", "Shivaji Stadium", "Dhaula Kuan", "Delhi Aerocity", "Airport (T-3)", "Dwarka Sector - 21", "Yashobhoomi Dwarka Sector - 25"],
-  rmgl: ["Sector 55-56", "Sector-54 Chowk", "Sector-53-54", "Sector-42-43", "Phase-1", "Sikanderpur", "Phase-2", "Belvedere Towers", "Cyber City", "Moulsari Avenue", "Phase-3"]
+  rapid: ["Sector 55-56", "Sector-54 Chowk", "Sector-53-54", "Sector-42-43", "Phase-1", "Sikanderpur", "Phase-2", "Belvedere Towers", "Cyber City", "Moulsari Avenue", "Phase-3"]
 };
 
 
