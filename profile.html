@@ -89,16 +89,16 @@
       <div class="user-details">
         <form id="profileForm">
           <label>Name</label>
-          <input type="text" name="name" placeholder="Name" readonly />
+          <input type="text" id="name" placeholder="Name" readonly />
 
           <label>Contact No.</label>
-          <input type="tel" name="phone" placeholder="Phone number" />
+          <input type="tel" id="phone" placeholder="Phone number" />
 
           <label>Address</label>
-          <input type="text" name="address" placeholder="Address" />
+          <input type="text" id="address" placeholder="Address" />
 
           <label>Email</label>
-          <input type="email" name="email" placeholder="Email" readonly />
+          <input type="email" id="email" placeholder="Email" readonly />
 
           <button type="submit">Save</button>
         </form>
@@ -127,12 +127,10 @@
         if (!res.ok) throw new Error("Not logged in");
 
         const user = await res.json();
-        const form = document.getElementById("profileForm");
-
-        form.name.value = user.name || "";
-        form.email.value = user.email || "";
-        form.phone.value = user.phone || "";
-        form.address.value = user.address || "";
+        document.getElementById("name").value = user.name || "";
+        document.getElementById("email").value = user.email || "";
+        document.getElementById("phone").value = user.phone || "";
+        document.getElementById("address").value = user.address || "";
       } catch (err) {
         alert("Please log in to view your profile.");
         window.location.href = "/login.html";
@@ -142,9 +140,10 @@
     // Update user profile
     document.getElementById("profileForm").addEventListener("submit", async function (e) {
       e.preventDefault();
+
       const formData = {
-        phone: this.phone.value,
-        address: this.address.value,
+        phone: document.getElementById("phone").value,
+        address: document.getElementById("address").value,
       };
 
       try {

@@ -191,5 +191,12 @@ ALTER TABLE ONLY public.lost_items
 
 --
 -- PostgreSQL database dump complete
---
+--user profile
+CREATE TABLE IF NOT EXISTS user_profiles (
+  id SERIAL PRIMARY KEY,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  name VARCHAR(255),
+  phone VARCHAR(20),
+  address TEXT
+);
 

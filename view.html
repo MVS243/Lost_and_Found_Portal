@@ -4,98 +4,52 @@
   <meta charset="UTF-8" />
   <title>View Items</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Caveat:wght@400..700&family=League+Spartan:wght@100..900&family=Oi&family=Reenie+Beanie&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-
-  <!-- Custom CSS -->
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-
-    <div class="navbar">
-      <div class="navbar-left">
-        <p>Follow us on : </p>
-        <ul class="navbar-left-list1">
-          <li><a href="https://www.facebook.com/officialdmrc/" target="_blank"><img src="images/fb_icon.png" alt="FB" height="20"></a></li>
-          <li><a href="https://www.instagram.com/officialdmrc/?hl=en" target="_blank"><img src="images/instagram_icon.png" alt="Insta" height="20"></a></li>
-          <li><a href="https://x.com/OfficialDMRC" target="_blank"><img src="images/x_icon.png" alt="X" height="20"></a></li>
-          <li><a href="https://apps.apple.com/in/app/delhi-metro-rail/id691105308" target="_blank"><img src="images/apple_logo.png" alt="Play" height="20"></a></li>
-          <li><a href="https://play.google.com/store/apps/details?id=com.sraoss.dmrc" target="_blank"><img src="images/playstore_icon.png" alt="Play" height="20"></a></li>
-        </ul>
-      </div>
+  <div class="view-container">
+    <div class="view-reports-title">
+      <p style="font-size: 50px; font-weight: bolder; font-family: 'League Spartan', sans-serif; color: #b51d1d; margin-top: 30px; margin-left: 5px;">Lost or Found Items</p>
     </div>
-    <div class="header-main">
-      <div class="header-left">
-        <img src="images/dmrc_logo.png" alt="DMRC Logo" />
-      </div>
-      <nav class="secondary-navbar">
-        <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="https://delhimetrorail.com/contact-us">Contact</a></li>
-              <li><a href="https://delhimetrorail.com/facilities">Facilities</a></li>
-              <li><a href="https://delhimetrorail.com/map">Maps</a></li>
-              <li><a href="https://delhimetrorail.com/faq">FAQs</a></li>
-        </ul>
-      </nav>
-    </div>
-    <div class="view-container">
-            <div class="view-reports-title">
-        <p style="font-size: 50px; font-weight: bolder; font-family: 'League Spartan', sans-serif; color: #b51d1d; margin-top: 30px; margin-left: 5px;">Lost or Found Items</p>
-      </div>
 
-      <main class="view-item-box">
-
+    <main class="view-item-box">
       <section class="filters">
-      <h2 style = "font-family: 'League Spartan', sans-serif; font-size: 30px; text-align: center;">Filter Items</h2>
-      <label for="filterType" >Type:</label>
-      <select id="filterType">
-        <option value="lost">Lost</option>
-        <option value="found">Found</option>
-      </select>
+        <h2 style="font-family: 'League Spartan', sans-serif; font-size: 30px; text-align: center;">Filter Items</h2>
 
-      <label for="filterLine">Line:</label>
-      <select id="filterLine">
-        <option value="">All Lines</option>
-      </select>
+        <label for="filterType">Type:</label>
+        <select id="filterType">
+          <option value="lost">Lost</option>
+          <option value="found">Found</option>
+        </select>
 
-      <label for="filterStation">Station:</label>
-      <select id="filterStation">
-        <option value="">All Stations</option>
-      </select>
+        <label for="filterLine">Line:</label>
+        <select id="filterLine">
+          <option value="">All Lines</option>
+        </select>
 
-      <label for="filterDate">Date:</label>
-      <input type="date" id="filterDate" />
+        <label for="filterStation">Station:</label>
+        <select id="filterStation">
+          <option value="">All Stations</option>
+        </select>
 
-      <button onclick="fetchItems()">Apply Filter</button>
-    </section>
+        <label for="filterDate">Date:</label>
+        <input type="date" id="filterDate" />
 
-    <section id="itemsContainer" class="items-list">
-      <!-- Items will be rendered here -->
-    </section>
-  </main>
+        <button onclick="fetchItems()">Apply Filter</button>
+      </section>
+
+      <section id="itemsContainer" class="items-list"></section>
+    </main>
   </div>
 
-  <!-- Script -->
   <script>
     const stationsByLine = {
-      "Blue Line": ["Dwarka", "Rajiv Chowk", "Noida Sector 18"],
-      "Red Line": ["Rithala", "Kashmere Gate"],
-      "Yellow Line": ["HUDA City Centre", "New Delhi"],
-      "Pink Line": ["Lajpat Nagar", "Mayur Vihar"],
-      "Violet Line": ["ITO", "Kalkaji Mandir"],
-      "Magenta Line": ["Janakpuri West", "Botanical Garden"],
-      "Green Line": ["Inderlok", "Kirti Nagar"],
-      "Grey Line": ["Najafgarh", "Dhansa Bus Stand"],
-      "Airport Express Line": ["New Delhi", "IGI Airport"],
-      "Rapid Metro Gurgaon": ["Cyber City", "Phase 3"]
+      red: ["Rithala", "Kashmere Gate"],
+      green: ["Inderlok", "Kirti Nagar"],
+      pink: ["Lajpat Nagar", "Mayur Vihar"],
+      blue: ["Dwarka", "Rajiv Chowk", "Noida Sector 18"],
+      yellow: ["New Delhi", "HUDA City Centre"],
     };
 
     function populateFilterDropdowns() {
@@ -108,7 +62,7 @@
       Object.keys(stationsByLine).forEach(line => {
         const option = document.createElement("option");
         option.value = line;
-        option.textContent = line;
+        option.textContent = line.charAt(0).toUpperCase() + line.slice(1) + " Line";
         lineSelect.appendChild(option);
       });
 
@@ -138,60 +92,56 @@
       try {
         const res = await fetch(url);
         const data = await res.json();
-        renderItems(data);
+        renderItems(data, type);
       } catch (err) {
-        console.error("Failed to fetch items:", err);
+        console.error("Error fetching:", err);
         document.getElementById("itemsContainer").innerHTML = `<p style="color:red;">Error fetching items.</p>`;
       }
     }
 
-    function renderItems(items) {
-      const container = document.getElementById("itemsContainer");
-      container.innerHTML = "";
+    function renderItems(items, type) {
+  const container = document.getElementById("itemsContainer");
+  container.innerHTML = "";
 
-      if (!items.length) {
-        container.innerHTML = "<p>No items found.</p>";
-        return;
-      }
-
-      items.forEach(item => {
-        const card = document.createElement("div");
-        card.className = "item-card";
-        card.innerHTML = `
-          <h3>${item.itemName}</h3>
-          <p><strong>Type:</strong> ${item.type || "N/A"}</p>
-          <p><strong>Date:</strong> ${item.lostDate || item.foundDate}</p>
-          <p><strong>Line:</strong> ${item.line}</p>
-          <p><strong>Station:</strong> ${item.station}</p>
-          <p><strong>Remarks:</strong> ${item.remarks || "None"}</p>
-          ${item.image ? `<img src="/uploads/${item.image}" alt="Item Image" style="max-width: 200px;" />` : ""}
-        `;
-        container.appendChild(card);
-      });
-    }
-
-    window.onload = () => {
-  populateFilterDropdowns();
-
-  // Get "type" from query string and set it to filterType dropdown
-  const params = new URLSearchParams(window.location.search);
-  const type = params.get("type"); // "lost" or "found"
-
-  if (type) {
-    const filterType = document.getElementById("filterType");
-    if (filterType) {
-      filterType.value = type;
-    }
+  if (!items.length) {
+    container.innerHTML = "<p>No items found.</p>";
+    return;
   }
 
-  fetchItems(); // Now fetch with updated type
-};
+  const typeLabel = type.charAt(0).toUpperCase() + type.slice(1); // Lost / Found
 
-  </script>
-      <footer>
-      <div class="footer-content">
-        <p>© 2025 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
+  items.forEach(item => {
+    const rawDate = item.found_date || item.date_found || item.lost_date || item.date_lost || null;
+
+    let displayDate = "N/A";
+    if (rawDate) {
+      const parsed = new Date(rawDate);
+      displayDate = isNaN(parsed.getTime()) ? "N/A" : parsed.toLocaleDateString();
+    }
+
+    const html = `
+      <div class="item-card">
+        <h3>${item.item_name}</h3>
+        <p><strong>Type:</strong> ${typeLabel}</p>
+        <p><strong>Date:</strong> ${displayDate}</p>
+        <p><strong>Line:</strong> ${item.line}</p>
+        <p><strong>Station:</strong> ${item.station}</p>
+        <p><strong>Remarks:</strong> ${item.remarks || "None"}</p>
+        ${item.image ? `<img src="/uploads/${item.image}" alt="Item Image" style="max-width: 200px;">` : ""}
+        <p><strong>Reported By:</strong> ${item.user_name || "N/A"} (${item.user_email || "N/A"})</p>
       </div>
-  </footer>
+    `;
+    container.innerHTML += html;
+  });
+}
+
+    window.onload = () => {
+      populateFilterDropdowns();
+      const params = new URLSearchParams(window.location.search);
+      const type = params.get("type");
+      if (type) document.getElementById("filterType").value = type;
+      fetchItems();
+    };
+  </script>
 </body>
 </html>
