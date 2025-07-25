@@ -54,8 +54,7 @@ app.get("/auth/google", passport.authenticate("google", { scope: ["profile", "em
 app.get("/auth/google/callback",
   passport.authenticate("google", { failureRedirect: "/login.html" }),
   async (req, res) => {
-    // ⬇️ Save user to user_profiles table if new
-    const { id, email, displayName } = req.user;
+    const { email, displayName } = req.user;
     try {
       const existing = await pool.query("SELECT id FROM user_profiles WHERE email = $1", [email]);
       if (existing.rows.length === 0) {
@@ -67,15 +66,12 @@ app.get("/auth/google/callback",
     } catch (err) {
       console.error("Error upserting user profile:", err.message);
     }
-
     res.redirect("/dashboard.html");
   }
 );
 
 app.get("/logout", (req, res) => {
-  req.logout(() => {
-    res.redirect("/login.html");
-  });
+  req.logout(() => res.redirect("/login.html"));
 });
 
 // ========== PROFILE ROUTES ==========
@@ -93,7 +89,6 @@ app.get("/api/user", ensureAuthenticated, async (req, res) => {
 app.post("/api/user/update", ensureAuthenticated, async (req, res) => {
   const { phone, address } = req.body;
   const email = req.user.email;
-
   try {
     await pool.query(
       `UPDATE user_profiles SET phone = $1, address = $2 WHERE email = $3`,
@@ -113,7 +108,6 @@ app.post("/api/lost", ensureAuthenticated, upload.single("image"), async (req, r
     const { itemName, lostDate, line, station, remarks } = req.body;
     const image = req.file?.filename;
     const email = req.user.email;
-
     const user = await pool.query("SELECT id FROM user_profiles WHERE email = $1", [email]);
     const userId = user.rows[0]?.id;
 
@@ -132,7 +126,6 @@ app.post("/api/lost", ensureAuthenticated, upload.single("image"), async (req, r
 
 app.get("/api/lost", async (req, res) => {
   const { line, station, date } = req.query;
-
   let query = `SELECT li.*, up.name as user_name, up.email as user_email, up.phone, up.address
                FROM lost_items li
                JOIN user_profiles up ON li.user_id = up.id WHERE 1=1`;
@@ -167,7 +160,6 @@ app.post("/api/found", ensureAuthenticated, upload.single("image"), async (req, 
     const { itemName, foundDate, line, station, remarks } = req.body;
     const image = req.file?.filename;
     const email = req.user.email;
-
     const user = await pool.query("SELECT id FROM user_profiles WHERE email = $1", [email]);
     const userId = user.rows[0]?.id;
 
@@ -186,7 +178,6 @@ app.post("/api/found", ensureAuthenticated, upload.single("image"), async (req, 
 
 app.get("/api/found", async (req, res) => {
   const { line, station, date } = req.query;
-
   let query = `SELECT fi.*, up.name as user_name, up.email as user_email, up.phone, up.address
                FROM found_items fi
                JOIN user_profiles up ON fi.user_id = up.id WHERE 1=1`;

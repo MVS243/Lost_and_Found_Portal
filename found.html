@@ -2,14 +2,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Delhi Metro Lost and Found</title>
+  <title>Report Found Item | DMRC</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Barriecito&family=Caveat:wght@400..700&family=League+Spartan:wght@100..900&family=Oi&family=Reenie+Beanie&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;700&display=swap" rel="stylesheet">
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
@@ -17,166 +15,127 @@
   <!-- Custom Styles -->
   <link rel="stylesheet" href="style.css" />
 </head>
-
 <body>
-  <!-- HEADER -->
+
+  <!-- ======= TOP SOCIAL BAR ======= -->
   <div class="navbar">
     <div class="navbar-left">
       <p>Follow us on : </p>
       <ul class="navbar-left-list1">
-        <li><a href="https://www.facebook.com/officialdmrc/" target="_blank"><img src="images/fb_icon.png" alt="FB" height="20"></a></li>
-        <li><a href="https://www.instagram.com/officialdmrc/?hl=en" target="_blank"><img src="images/instagram_icon.png" alt="Insta" height="20"></a></li>
-        <li><a href="https://x.com/OfficialDMRC" target="_blank"><img src="images/x_icon.png" alt="X" height="20"></a></li>
-        <li><a href="https://apps.apple.com/in/app/delhi-metro-rail/id691105308" target="_blank"><img src="images/apple_logo.png" alt="Apple" height="20"></a></li>
-        <li><a href="https://play.google.com/store/apps/details?id=com.sraoss.dmrc" target="_blank"><img src="images/playstore_icon.png" alt="Playstore" height="20"></a></li>
+        <li><a href="#"><img src="images/fb_icon.png" height="20" alt="FB"></a></li>
+        <li><a href="#"><img src="images/instagram_icon.png" height="20" alt="IG"></a></li>
+        <li><a href="#"><img src="images/x_icon.png" height="20" alt="X"></a></li>
       </ul>
     </div>
   </div>
 
+  <!-- ======= MAIN HEADER ======= -->
   <div class="header-main">
     <div class="header-left">
       <img src="images/dmrc_logo.png" alt="DMRC Logo" />
     </div>
-
     <div class="header-right">
       <div class="helpline">
         <img src="images/helpline.svg" alt="Helpline" height="15">
         Helpline <br>
         <span style="color: green; font-weight: bold;">155370</span>
       </div>
-
       <nav class="secondary-navbar">
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="https://delhimetrorail.com/contact-us">Contact</a></li>
-          <li><a href="https://delhimetrorail.com/facilities">Facilities</a></li>
-          <li><a href="https://delhimetrorail.com/map">Maps</a></li>
-          <li><a href="https://delhimetrorail.com/faq">FAQs</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Facilities</a></li>
+          <li><a href="#">Maps</a></li>
+          <li><a href="#">FAQs</a></li>
         </ul>
       </nav>
     </div>
   </div>
 
-  <!-- MAIN CONTENT -->
+  <!-- ======= MAIN CONTENT ======= -->
   <main class="lostfound-container">
     <div class="lostfound-left-column">
+      <div class="lostfound-main-title-left">
+        <p style="font-family: 'League Spartan', sans-serif; color: #b51d1d; text-align: center;">Report Found Item</p>
+      </div>
       <aside class="lostfound-sidebar">
         <h2>Actions</h2>
         <ul class="lostfound-sidebar-links">
-          <li><i class="fa-regular fa-star"></i> <a href="lost.html">Report Lost item</a></li>
-          <li><i class="fa-regular fa-star"></i> <a href="view.html">View Reports/ Search Item</a></li>
-          <hr style="width: 90%; opacity: 70%;">
-          <li><i class="fa-regular fa-star"></i> <a href="profile.html">Profile</a></li>
+          <li><a href="lost.html"><i class="fa-solid fa-circle-plus"></i> Report Lost Item</a></li>
+          <li><a href="found.html"><i class="fa-solid fa-circle-plus"></i> Report Found Item</a></li>
+          <li><a href="view.html"><i class="fa-solid fa-magnifying-glass"></i> View Reports</a></li>
         </ul>
       </aside>
     </div>
 
     <div class="lostfound-main-area">
-      <div class="lostfound-main-title-left">
-        <p style="font-family: 'League Spartan', sans-serif; color: #b51d1d; text-align: center;">Found</p>
-      </div>
+      <div class="user-details">
+        <form id="foundForm" enctype="multipart/form-data">
+          <label for="item">Item Name:</label>
+          <input type="text" id="item" name="item" required>
 
-      <div class="lostfound-floating-toggle" onclick="toggleOptions()">
-        <img src="images/burger-bar.png">
-      </div>
+          <label for="description">Description:</label>
+          <textarea id="description" name="description" rows="3" required></textarea>
 
-      <div class="lostfound-mobile-options-panel" id="lostfound-optionsPanel">
-        <a href="lost.html">Report</a><br>
-        <a href="filler.html">View Reports</a><br>
-        <a href="profile.html">Profile</a><br>
-      </div>
+          <label for="date">Date Found:</label>
+          <input type="date" id="date" name="date" required>
 
-      <!-- FORM SECTION -->
-      <div class="lostfound-container-form">
-        <section class="lostfound-form-section">
-          <form id="foundForm" enctype="multipart/form-data" method="POST">
-            <label>Item Name <span style="color: red;">*</span></label>
-            <input type="text" name="itemName" required placeholder="Text" />
+          <label for="line">Metro Line:</label>
+          <select id="line" name="line" onchange="updateStations()" required>
+            <option value="">Select a line</option>
+            <option value="Blue Line">Blue Line</option>
+            <option value="Red Line">Red Line</option>
+            <option value="Yellow Line">Yellow Line</option>
+          </select>
 
-            <label>Date & Time of Found Item <span style="color: red;">*</span></label>
-            <input type="datetime-local" name="foundDate" required />
+          <label for="station">Station:</label>
+          <select id="station" name="station" required>
+            <option value="">Select a station</option>
+          </select>
 
-            <label for="line">Choose a line <span style="color: red;">*</span></label>
-            <select id="line" name="line" onchange="updateStations()">
-              <option value="" disabled selected>Select a Line</option>
-              <option value="blue">Blue Line</option>
-              <option value="red">Red Line</option>
-              <option value="yellow">Yellow Line</option>
-              <option value="pink">Pink Line</option>
-              <option value="violet">Violet Line</option>
-              <option value="magenta">Magenta Line</option>
-              <option value="green">Green Line</option>
-              <option value="grey">Grey Line</option>
-              <option value="airport">Airport Express Line</option>
-              <option value="rapid">Rapid Metro Gurgaon</option>
-            </select>
-            <span class="error" id="lineError"></span>
+          <label for="image">Upload Image (optional):</label>
+          <input type="file" id="image" name="image" accept="image/*">
 
-            <label for="station">Choose a Station: <span style="color: red;">*</span></label>
-            <select id="station" name="station">
-              <option value="" disabled selected>Select a Station</option>
-            </select>
-            <span class="error" id="stationError"></span>
-
-            <label>Remarks (optional)</label>
-            <textarea name="remarks" placeholder="Any extra details about the location or the item."></textarea>
-
-            <div class="lostfound-file-upload-section">
-              <label for="fileInput">File Upload (jpg, jpeg, png)</label>
-              <input type="file" id="fileInput" name="image" accept=".jpg,.jpeg,.png" required />
-            </div>
-
-            <div class="lostfound-button-group">
-              <button type="reset">Cancel</button>
-              <button type="submit">Continue</button>
-            </div>
-          </form>
-        </section>
+          <center><button class="btn-white" type="submit">Submit Report</button></center>
+        </form>
       </div>
     </div>
   </main>
 
-  <footer>
+  <!-- ======= FOOTER ======= -->
+  <footer id="footer">
     <div class="footer-content">
       <p>© 2025 Delhi Metro Rail Corporation Ltd. All rights reserved.</p>
     </div>
   </footer>
 
+  <!-- ======= JS FUNCTIONALITY ======= -->
   <script>
     const stationsByLine = {
-      blue: ["Dwarka", "Rajiv Chowk", "Noida Sector 18"],
-      red: ["Rithala", "Kashmere Gate"],
-      yellow: ["HUDA City Centre", "New Delhi"],
-      pink: ["Lajpat Nagar", "Mayur Vihar"],
-      violet: ["ITO", "Kalkaji Mandir"],
-      magenta: ["Janakpuri West", "Botanical Garden"],
-      green: ["Inderlok", "Kirti Nagar"],
-      grey: ["Najafgarh", "Dhansa Bus Stand"],
-      airport: ["New Delhi", "IGI Airport"],
-      rapid: ["Cyber City", "Phase 3"]
+      "Blue Line": ["Dwarka Sector 21", "Rajiv Chowk", "Noida City Centre"],
+      "Red Line": ["Rithala", "Kashmere Gate", "Shahdara"],
+      "Yellow Line": ["Samaypur Badli", "Rajiv Chowk", "Huda City Centre"]
     };
 
     function updateStations() {
       const line = document.getElementById("line").value;
       const stationSelect = document.getElementById("station");
-      stationSelect.innerHTML = '<option value="" disabled selected>Select a Station</option>';
-      (stationsByLine[line] || []).forEach((station) => {
-        const opt = document.createElement("option");
-        opt.value = station;
-        opt.textContent = station;
-        stationSelect.appendChild(opt);
-      });
-    }
+      stationSelect.innerHTML = '<option value="">Select a station</option>';
 
-    function toggleOptions() {
-      const panel = document.getElementById("lostfound-optionsPanel");
-      panel.classList.toggle("show");
+      if (stationsByLine[line]) {
+        stationsByLine[line].forEach(station => {
+          const option = document.createElement("option");
+          option.value = station;
+          option.text = station;
+          stationSelect.appendChild(option);
+        });
+      }
     }
 
     document.getElementById("foundForm").addEventListener("submit", async function (e) {
       e.preventDefault();
-      const form = e.target;
-      const formData = new FormData(form);
+
+      const formData = new FormData(this);
 
       try {
         const res = await fetch("/api/found", {
@@ -185,76 +144,16 @@
         });
 
         if (res.ok) {
-          alert("Found item submitted successfully!");
-          form.reset();
+          alert("Found item reported successfully.");
+          this.reset();
         } else {
-          const err = await res.text();
-          alert("Submission failed: " + err);
+          alert("Failed to report item.");
         }
       } catch (err) {
-        console.error("Error submitting form:", err);
-        alert("Submission failed.");
+        console.error(err);
+        alert("An error occurred.");
       }
     });
   </script>
 </body>
 </html>
-<style>
-  body {
-    font-family: 'Lato', sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-  }
-
-  .navbar {
-    background-color: #333;
-    color: white;
-    padding: 10px 20px;
-  }
-
-  .navbar-left {
-    display: flex;
-    align-items: center;
-  }
-
-  .navbar-left p {
-    margin-right: 20px;
-  }
-
-  .navbar-left-list1 {
-    list-style-type: none;
-    display: flex;
-    gap: 10px;
-  }
-
-  .navbar-left-list1 li a img {
-    vertical-align: middle;
-  }
-
-  .header-main {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
-    background-color: #fff;
-  }
-
-  .header-left img {
-    height: 50px;
-  }
-
-  .header-right {
-    text-align: right;
-  }
-
-  .helpline {
-    font-size: small;
-    color: #555;
-  }
-
-  .secondary-navbar ul {
-    list-style-type: none;
-    padding: 0;
-    margin-top: 10px;
-  }

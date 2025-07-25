@@ -1,11 +1,11 @@
 import passport from "passport";
 import { Strategy as GoogleStrategy } from "passport-google-oauth20";
 import dotenv from "dotenv";
-import pool from "../db.js"; // ✅ Import DB connection
+import pool from "../db.js"; //  Import DB connection
 
 dotenv.config();
 
-// 🔐 Session handling
+// Session handling
 passport.serializeUser((user, done) => {
   done(null, user);
 });
@@ -14,7 +14,7 @@ passport.deserializeUser((obj, done) => {
   done(null, obj);
 });
 
-// 🔑 Google OAuth Strategy
+//  Google OAuth Strategy
 passport.use(new GoogleStrategy(
   {
     clientID: process.env.GOOGLE_CLIENT_ID,
@@ -26,13 +26,13 @@ passport.use(new GoogleStrategy(
     const name = profile.displayName;
 
     try {
-      // ✅ Check if user already exists
+      //  Check if user already exists
       const result = await pool.query(
         "SELECT id FROM user_profiles WHERE email = $1",
         [email]
       );
 
-      // ➕ If not, insert new user
+      // If not, insert new user
       if (result.rows.length === 0) {
         await pool.query(
           "INSERT INTO user_profiles (email, name) VALUES ($1, $2)",
