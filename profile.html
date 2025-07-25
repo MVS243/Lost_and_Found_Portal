@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Delhi Metro Lost and Found_Login</title>
+  <title>DMRC_Lost&Found_UserProfile</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Fonts -->
@@ -53,36 +53,36 @@
           <li><a href="https://delhimetrorail.com/facilities">Facilities</a></li>
           <li><a href="https://delhimetrorail.com/map">Maps</a></li>
           <li><a href="https://delhimetrorail.com/faq">FAQs</a></li>
+          <li><a href="profile.html">Profile</a></li>
         </ul>
       </nav>
     </div>
   </div>
 
   <!-- ======= CONTENT ======= -->
-  <main class="container">
-    <div class="left-column">
+   <main class="lostfound-container">
+    <div class="lostfound-left-column">
+      <div class="lostfound-main-title-left">
+        <p style="font-family: 'League Spartan', sans-serif; color: #b51d1d; text-align: center;">User Profile</p>
+      </div>
       <aside class="lostfound-sidebar">
         <h2>Actions</h2>
         <ul class="lostfound-sidebar-links">
-          <li><span><i class="fa-solid fa-star"></i></span><a href="lost.html"> Report Lost Item</a></li>
-          <li><span><i class="fa-solid fa-star"></i></span><a href="found.html"> Report Found Item</a></li>
-          <li><span><i class="fa-solid fa-star"></i></span><a href="view.html">View Reports/ Search Item</a></li>
+          <li><i class="fa-regular fa-star"></i> <a href="lost.html">Report Lost Item</a></li>
+          <li><i class="fa-regular fa-star"></i> <a href="found.html">Report Found Item</a></li>
+          <li><i class="fa-regular fa-star"></i> <a href="view.html">View Reports/ Search Item</a></li> 
         </ul>
       </aside>
     </div>
 
     <div class="lostfound-main-area">
-      <div class="lostfound-main-title-left">
-        <p style="font-size: 70px; font-weight: bold; font-family: 'League Spartan', 'Lato', sans-serif; color: #b51d1d; margin: 0; text-align: center; white-space: nowrap;">User Profile</p>
-      </div>
-
       <div class="lostfound-floating-toggle" onclick="toggleOptions()">
-        <img src="images/burger-bar.png" alt="Menu Toggle">
+        <img src="images/burger-bar.png">
       </div>
 
       <div class="lostfound-mobile-options-panel" id="lostfound-optionsPanel">
-        <a href="lost.html">Report Lost</a><br>
-        <a href="view.html">View Reports</a><br>
+        <a href="lost.html">Report</a><br>
+        <a href="filler.html">View Reports</a><br>
         <a href="profile.html">Profile</a><br>
       </div>
 
@@ -100,7 +100,7 @@
           <label>Email</label>
           <input type="email" name="email" placeholder="Email" readonly />
 
-          <button type="submit">Save</button>
+          <center><button class="btn-white" type="submit">Save</button></center>
         </form>
       </div>
     </div>
@@ -135,7 +135,7 @@
         form.address.value = user.address || "";
       } catch (err) {
         alert("Please log in to view your profile.");
-        window.location.href = "/login.html";
+        window.location.href = "/index.html";
       }
     };
 
