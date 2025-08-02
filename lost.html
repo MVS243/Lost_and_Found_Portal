@@ -46,7 +46,6 @@
         Helpline <br>
         <span style="color: green; font-weight: bold;">155370</span>
       </div>
-
       <nav class="secondary-navbar">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -64,7 +63,7 @@
   <main class="lostfound-container">
     <div class="lostfound-left-column">
       <div class="lostfound-main-title-left">
-        <p style="font-family: 'League Spartan', sans-serif; color: #b51d1d; text-align: center;">Lost</p>
+        <p style="font-family: 'League Spartan', sans-serif; color: #b51d1d; text-align: center;">Lost Item</p>
       </div>
       <aside class="lostfound-sidebar">
         <h2>Actions</h2>
@@ -86,8 +85,8 @@
       </div>
 
       <!-- FORM SECTION -->
-      <div class="lostfound-container-form">
-        <section class="lostfound-form-section">
+      <!-- <div class="lostfound-main-area"> -->
+        <div class="user-details">
           <form id="lostForm" action="/api/lost" method="POST" enctype="multipart/form-data" novalidate>
             <label>Item Name <span style="color: red;">*</span></label>
             <input type="text" name="itemName" required placeholder="Item Name" />
@@ -124,13 +123,14 @@
             <label>Upload image (jpg, jpeg, png) <span style="color: red;">*</span></label>
             <input type="file" name="image" accept=".jpg,.jpeg,.png" required />
 
-            <div class="lostfound-button-group">
+            <!-- <div class="lostfound-button-group">
               <button type="reset">Cancel</button>
               <button type="submit">Continue</button>
-            </div>
+            </div> -->
+            <center><button class="btn-white" type="submit">Submit Report</button></center>
           </form>
-        </section>
-      </div>
+        </div>
+      <!-- </div> -->
     </div>
   </main>
 

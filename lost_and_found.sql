@@ -4,10 +4,10 @@
 -- Drop legacy tables if needed
 DROP TABLE IF EXISTS lost_items CASCADE;
 DROP TABLE IF EXISTS found_items CASCADE;
-DROP TABLE IF EXISTS user_profile CASCADE;
+DROP TABLE IF EXISTS user_profiles CASCADE;
 
 -- Create user_profiles (normalized)
-CREATE TABLE public.user_profile (
+CREATE TABLE public.user_profiles (
     user_id SERIAL PRIMARY KEY,
     full_name TEXT NOT NULL,
     phone_number VARCHAR(15),
@@ -25,7 +25,7 @@ CREATE TABLE public.lost_items (
     remarks TEXT,
     image TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    user_id INTEGER REFERENCES user_profile(user_id) ON DELETE CASCADE
+    user_id INTEGER REFERENCES user_profiles(user_id) ON DELETE CASCADE
 );
 
 -- Create found_items table
@@ -38,7 +38,7 @@ CREATE TABLE public.found_items (
     remarks TEXT,
     image TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    user_id INTEGER REFERENCES user_profile(user_id) ON DELETE CASCADE
+    user_id INTEGER REFERENCES user_profiles(user_id) ON DELETE CASCADE
 );
 
 -- Create primary key constraints

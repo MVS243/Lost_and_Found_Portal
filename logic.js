@@ -419,16 +419,6 @@ form.addEventListener("submit", function (e) {
   }
 });
 
-
-// ✅ Your new logic goes here
-window.addEventListener("DOMContentLoaded", () => {
-  const someElement = document.getElementById("some-id");
-  if (someElement) {
-    someElement.addEventListener("click", () => {
-      // your logic here
-    });
-  }
-});
 function reportLost() {
   window.location.href = "lost.html";
 }
@@ -437,7 +427,6 @@ function reportFound() {
   window.location.href = "found.html";
 }
 
-// ✅ Replace these two ↓↓↓
 
 function viewLost() {
   window.location.href = "view.html?type=lost";

@@ -127,7 +127,7 @@
         if (!res.ok) throw new Error("Not logged in");
 
         const user = await res.json();
-        document.getElementById("name").value = user.name || "";
+        document.getElementById("name").value = user.full_name || "";
         document.getElementById("email").value = user.email || "";
         document.getElementById("phone").value = user.phone || "";
         document.getElementById("address").value = user.address || "";

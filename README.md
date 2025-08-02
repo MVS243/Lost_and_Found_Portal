@@ -9,3 +9,11 @@
 **CSS**
 
 **JAVASCRIPT**
+
+### <ins> Backend </ins>
+
+**Node JS**
+
+**Express JS**
+
+**PostGRE SQL**
