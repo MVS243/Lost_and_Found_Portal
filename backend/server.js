@@ -56,15 +56,15 @@ app.get("/auth/google/callback",
   async (req, res) => {
     const { email, displayName } = req.user;
     try {
-      const existing = await pool.query("SELECT id FROM user_profiles WHERE email = $1", [email]);
+      const existing = await pool.query("SELECT user_id FROM user_profiles WHERE email = $1", [email]);
       if (existing.rows.length === 0) {
         await pool.query(
-          "INSERT INTO user_profiles (email, name) VALUES ($1, $2)",
+          "INSERT INTO user_profiles (email, full_name) VALUES ($1, $2)",
           [email, displayName]
         );
       }
     } catch (err) {
-      console.error("Error upserting user profile:", err.message);
+      console.error("Error inserting user profile:", err.message);
     }
     res.redirect("/dashboard.html");
   }
@@ -91,7 +91,7 @@ app.post("/api/user/update", ensureAuthenticated, async (req, res) => {
   const email = req.user.email;
   try {
     await pool.query(
-      `UPDATE user_profiles SET phone = $1, address = $2 WHERE email = $3`,
+      `UPDATE user_profiles SET phone_number = $1, address = $2 WHERE email = $3`,
       [phone, address, email]
     );
     res.send("Profile updated");
@@ -103,16 +103,18 @@ app.post("/api/user/update", ensureAuthenticated, async (req, res) => {
 
 // ========== LOST ITEM ROUTES ==========
 
+
 app.post("/api/lost", ensureAuthenticated, upload.single("image"), async (req, res) => {
   try {
     const { itemName, lostDate, line, station, remarks } = req.body;
     const image = req.file?.filename;
     const email = req.user.email;
-    const user = await pool.query("SELECT id FROM user_profiles WHERE email = $1", [email]);
-    const userId = user.rows[0]?.id;
+
+    const user = await pool.query("SELECT user_id FROM user_profiles WHERE email = $1", [email]);
+    const userId = user.rows[0]?.user_id;
 
     await pool.query(
-      `INSERT INTO lost_items (item_name, date_lost, line, station, remarks, image, user_id)
+      `INSERT INTO lost_items (item_name, lost_date, line, station, remarks, image, user_id)
        VALUES ($1, $2, $3, $4, $5, $6, $7)`,
       [itemName, lostDate, line, station, remarks, image, userId]
     );
@@ -126,9 +128,9 @@ app.post("/api/lost", ensureAuthenticated, upload.single("image"), async (req, r
 
 app.get("/api/lost", async (req, res) => {
   const { line, station, date } = req.query;
-  let query = `SELECT li.*, up.name as user_name, up.email as user_email, up.phone, up.address
+  let query = `SELECT li.*, up.full_name as user_name, up.email as user_email, up.phone_number, up.address
                FROM lost_items li
-               JOIN user_profiles up ON li.user_id = up.id WHERE 1=1`;
+               JOIN user_profiles up ON li.user_id = up.user_id WHERE 1=1`;
   const values = [];
 
   if (line) {
@@ -141,7 +143,7 @@ app.get("/api/lost", async (req, res) => {
   }
   if (date) {
     values.push(date);
-    query += ` AND li.date_lost = $${values.length}`;
+    query += ` AND li.lost_date = $${values.length}`;
   }
 
   try {
@@ -149,38 +151,53 @@ app.get("/api/lost", async (req, res) => {
     const rows = result.rows.map(row => ({ ...row, type: "lost" }));
     res.json(rows);
   } catch (err) {
+    console.error("Fetch error:", err);
     res.status(500).send("Fetch error");
   }
 });
+
 
 // ========== FOUND ITEM ROUTES ==========
 
 app.post("/api/found", ensureAuthenticated, upload.single("image"), async (req, res) => {
   try {
-    const { itemName, foundDate, line, station, remarks } = req.body;
+    // Form field names MUST match those sent by the frontend form
+    const { item_name, remarks, found_date, line, station } = req.body; // `date` is the name in HTML form
     const image = req.file?.filename;
     const email = req.user.email;
-    const user = await pool.query("SELECT id FROM user_profiles WHERE email = $1", [email]);
-    const userId = user.rows[0]?.id;
 
+    // Get user_id
+    const userResult = await pool.query(
+      "SELECT user_id FROM user_profiles WHERE email = $1",
+      [email]
+    );
+
+    const userId = userResult.rows[0]?.user_id;
+    if (!userId) return res.status(400).send("User not found");
+
+    // Insert into found_items
     await pool.query(
       `INSERT INTO found_items (item_name, found_date, line, station, remarks, image, user_id)
        VALUES ($1, $2, $3, $4, $5, $6, $7)`,
-      [itemName, foundDate, line, station, remarks, image, userId]
+      [item_name, found_date, line, station, remarks, image, userId]
     );
 
-    res.send("Found item reported");
+    res.send("Found item reported successfully.");
   } catch (err) {
     console.error("Found item insert failed:", err);
-    res.status(500).send("DB error");
+    res.status(500).send("DB error while inserting found item");
   }
 });
 
 app.get("/api/found", async (req, res) => {
-  const { line, station, date } = req.query;
-  let query = `SELECT fi.*, up.name as user_name, up.email as user_email, up.phone, up.address
-               FROM found_items fi
-               JOIN user_profiles up ON fi.user_id = up.id WHERE 1=1`;
+  const { line, station, found_date } = req.query; // Match query param names with frontend (use `date`, not `found_date`)
+
+  let query = `
+    SELECT fi.*, up.full_name AS user_name, up.email AS user_email, up.phone_number, up.address
+    FROM found_items fi
+    JOIN user_profiles up ON fi.user_id = up.user_id
+    WHERE 1=1`;
+  
   const values = [];
 
   if (line) {
@@ -191,8 +208,8 @@ app.get("/api/found", async (req, res) => {
     values.push(station.toLowerCase());
     query += ` AND LOWER(fi.station) = $${values.length}`;
   }
-  if (date) {
-    values.push(date);
+  if (found_date) {
+    values.push(found_date);
     query += ` AND fi.found_date = $${values.length}`;
   }
 
@@ -201,9 +218,12 @@ app.get("/api/found", async (req, res) => {
     const rows = result.rows.map(row => ({ ...row, type: "found" }));
     res.json(rows);
   } catch (err) {
-    res.status(500).send("Fetch error");
+    console.error("Fetch error:", err);
+    res.status(500).send("Error fetching found items");
   }
 });
+
+
 
 // ===== SERVER START =====
 app.listen(5000, () => {
