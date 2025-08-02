@@ -161,12 +161,10 @@ app.get("/api/lost", async (req, res) => {
 
 app.post("/api/found", ensureAuthenticated, upload.single("image"), async (req, res) => {
   try {
-    // Form field names MUST match those sent by the frontend form
-    const { item_name, remarks, found_date, line, station } = req.body; // `date` is the name in HTML form
+    const { item_name, remarks, found_date, line, station } = req.body; 
     const image = req.file?.filename;
     const email = req.user.email;
 
-    // Get user_id
     const userResult = await pool.query(
       "SELECT user_id FROM user_profiles WHERE email = $1",
       [email]
@@ -190,7 +188,7 @@ app.post("/api/found", ensureAuthenticated, upload.single("image"), async (req, 
 });
 
 app.get("/api/found", async (req, res) => {
-  const { line, station, found_date } = req.query; // Match query param names with frontend (use `date`, not `found_date`)
+  const { line, station, found_date } = req.query; 
 
   let query = `
     SELECT fi.*, up.full_name AS user_name, up.email AS user_email, up.phone_number, up.address
