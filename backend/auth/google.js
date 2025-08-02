@@ -28,14 +28,14 @@ passport.use(new GoogleStrategy(
     try {
       //  Check if user already exists
       const result = await pool.query(
-        "SELECT id FROM user_profiles WHERE email = $1",
+        "SELECT user_id FROM user_profiles WHERE email = $1",
         [email]
       );
 
       // If not, insert new user
       if (result.rows.length === 0) {
         await pool.query(
-          "INSERT INTO user_profiles (email, name) VALUES ($1, $2)",
+          "INSERT INTO user_profiles (email, full_name) VALUES ($1, $2)",
           [email, name]
         );
       }
